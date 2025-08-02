@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Heading Styles -->
+    <style name="TextHeading1">
+        <item name="android:textSize">@dimen/text_heading_1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="TextHeading2">
+        <item name="android:textSize">@dimen/text_heading_2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="TextHeading3">
+        <item name="android:textSize">@dimen/text_heading_3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="TextHeading4">
+        <item name="android:textSize">@dimen/text_heading_4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="TextHeading5">
+        <item name="android:textSize">@dimen/text_heading_5</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!-- Body Styles -->
+    <style name="TextBody1Regular">
+        <item name="android:textSize">@dimen/text_body_1</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextBody1SemiBold">
+        <item name="android:textSize">@dimen/text_body_1</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextBody2Regular">
+        <item name="android:textSize">@dimen/text_body_2</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextBody2SemiBold">
+        <item name="android:textSize">@dimen/text_body_2</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextBody3Regular">
+        <item name="android:textSize">@dimen/text_body_3</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextBody3SemiBold">
+        <item name="android:textSize">@dimen/text_body_3</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <!-- Caption -->
+    <style name="TextCaptionRegular">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextCaptionSemiBold">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+</resources>
