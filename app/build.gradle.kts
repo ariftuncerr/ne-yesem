@@ -6,7 +6,6 @@ plugins {
 android {
     namespace = "com.ariftuncer.ne_yesem"
     compileSdk = 35
-
     defaultConfig {
         applicationId = "com.ariftuncer.ne_yesem"
         minSdk = 24
@@ -32,6 +31,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures{
+        viewBinding = true
     }
 }
 
