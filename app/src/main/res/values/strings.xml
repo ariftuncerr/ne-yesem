@@ -2,4 +2,7 @@
     <string name="app_name">ne-yesem</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="web_client_id">440789759944-ns21hc3lmqp6k84tgvq5r4448nj7rji9.apps.googleusercontent.com</string>
+
 </resources>
