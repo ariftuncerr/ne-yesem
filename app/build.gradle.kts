@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    id("kotlin-kapt")
 }
 
 android {
@@ -62,8 +63,18 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     implementation ("androidx.fragment:fragment-ktx:1.6.2")
 
-    implementation ("com.google.android.gms:play-services-auth:20.7.0") // Google Sign-In
-    implementation ("com.google.firebase:firebase-auth-ktx:22.3.0")  // Firebase Auth
+    implementation (libs.play.services.auth) // Google Sign-In
+    implementation (libs.firebase.auth.ktx)  // Firebase Auth
+
+    implementation ("com.facebook.android:facebook-login:latest.release") // Facebook Login
+
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+
+// Kotlin Coroutines ile Room
+    implementation("androidx.room:room-ktx:2.6.1")
+
 
 
 

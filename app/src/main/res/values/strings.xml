@@ -4,5 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="web_client_id">440789759944-ns21hc3lmqp6k84tgvq5r4448nj7rji9.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">1287491416335148</string>
+    <string name="fb_login_protocol_scheme">fb1287491416335148</string>
+    <string name="facebook_client_token">1050d6787e49568e8b1b29ac9f11a4ca</string>
+
 
 </resources>

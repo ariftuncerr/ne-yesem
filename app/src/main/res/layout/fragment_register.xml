@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.RegisterFragment">
+    tools:context=".presentation.ui.auth.RegisterFragment">
 
+    <!-- ANA İÇERİK -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -42,7 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerEmailText">
+            app:layout_constraintTop_toBottomOf="@id/registerEmailText">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerEmailEditTxt"
@@ -62,8 +64,7 @@
             android:textColor="@color/text600"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerEmailLayout" />
-
+            app:layout_constraintTop_toBottomOf="@id/registerEmailLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/registerPasswordLayout"
@@ -79,7 +80,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerPasswordText">
+            app:layout_constraintTop_toBottomOf="@id/registerPasswordText">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerPasswordEditTxt"
@@ -101,7 +102,7 @@
             android:textColor="@color/text600"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerPasswordLayout" />
+            app:layout_constraintTop_toBottomOf="@id/registerPasswordLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/registerPasswordApproveLayout"
@@ -117,7 +118,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerPasswordText2">
+            app:layout_constraintTop_toBottomOf="@id/registerPasswordText2">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerPasswordApproveEditTxt"
@@ -140,7 +141,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerPasswordApproveLayout" />
+            app:layout_constraintTop_toBottomOf="@id/registerPasswordApproveLayout" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -155,7 +156,7 @@
             android:paddingHorizontal="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerBtn">
+            app:layout_constraintTop_toBottomOf="@id/registerBtn">
 
             <View
                 android:layout_width="0dp"
@@ -189,7 +190,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2">
 
             <ImageButton
                 android:id="@+id/registerFacebookBtn"
@@ -221,9 +222,8 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3">
 
-            <!-- Normal yazı -->
             <TextView
                 android:id="@+id/haveAccountText"
                 android:layout_width="wrap_content"
@@ -233,9 +233,6 @@
                 android:textColor="@color/primary"
                 android:textSize="14sp" />
 
-            <!-- Renkli yazı -->
-
-            <!-- Tıklanabilir yazı -->
             <TextView
                 android:id="@+id/haveAccountLoginText"
                 android:layout_width="wrap_content"
@@ -248,6 +245,35 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <!-- Eski ProgressBar kaldırıldı; overlay içine taşındı -->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- LOADING OVERLAY (Dim + ProgressBar) -->
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>
+
