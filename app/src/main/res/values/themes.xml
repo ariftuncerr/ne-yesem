@@ -1,8 +1,38 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Neyesem" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Brand colors -->
+        <item name="colorPrimary">@color/primary600</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorPrimaryContainer">@color/primary100</item>
+        <item name="colorOnPrimaryContainer">@color/primary900</item>
+
+        <item name="colorSecondary">@color/secondary600</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="colorSecondaryContainer">@color/secondary100</item>
+        <item name="colorOnSecondaryContainer">@color/secondary900</item>
+
+        <!-- Surfaces & background -->
+        <item name="backgroundColor">#FFFFFF</item>
+        <item name="colorOnBackground">@color/text900</item>
+
+        <item name="colorSurface">@color/text50</item>
+        <item name="colorOnSurface">@color/text900</item>
+
+        <item name="colorSurfaceVariant">@color/text100</item>
+        <item name="colorOnSurfaceVariant">@color/text700</item>
+        <item name="colorOutline">@color/text200</item>
+        <item name="colorOutlineVariant">@color/text300</item>
+
+        <!-- System bars -->
+        <item name="android:windowBackground">@color/text50</item>
+        <item name="android:statusBarColor">@color/primary700</item>
+        <item name="android:navigationBarColor">@color/text50</item>
+
+        <!-- Default widget styles -->
+        <item name="materialButtonStyle">@style/NeYesemPrimaryButton</item>
+        <item name="textInputStyle">@style/NeYesemTextInputStyle</item>
+
     </style>
 
     <style name="Theme.Neyesem" parent="Base.Theme.Neyesem" />

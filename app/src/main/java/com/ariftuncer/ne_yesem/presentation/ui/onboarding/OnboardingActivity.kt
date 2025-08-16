@@ -16,8 +16,6 @@ class OnboardingActivity : AppCompatActivity() {
         setContentView(view)
         binding.viewPager2.adapter = OnboardingAdapter(this)
 
-
-
     }
 
 
