@@ -14,6 +14,7 @@
         android:background="@color/ic_launcher_background"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:title=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,17 +22,18 @@
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/stepBar"
-        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="8dp"
         android:progressTint="@color/secondary"
+        android:backgroundTint="@color/secondary"
+        app:indicatorColor="@color/secondary"
         app:layout_constraintBottom_toBottomOf="@+id/materialToolbar"
         app:layout_constraintEnd_toStartOf="@+id/stepText"
         app:layout_constraintStart_toStartOf="@+id/materialToolbar"
         app:layout_constraintTop_toTopOf="parent"
-        app:trackColor="@color/secondary"
+        app:trackColor="@color/primary50"
         app:trackCornerRadius="12dp" />
 
     <TextView

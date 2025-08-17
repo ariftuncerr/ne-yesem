@@ -72,9 +72,12 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
 
-// Kotlin Coroutines ile Room
+    // Kotlin Coroutines ile Room
     implementation("androidx.room:room-ktx:2.6.1")
 
+    // flexbox
+    implementation ("com.google.android.flexbox:flexbox:3.0.0")
+    implementation ("com.google.android.material:material:<latest>")
 
 
 

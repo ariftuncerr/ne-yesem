@@ -93,6 +93,27 @@
         <item name="font">@font/poppins_bold</item>
     </style>
 
+    <style name="Widget.App.AllergenChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipMinHeight">36dp</item>
+        <item name="shapeAppearance">@style/Shape.AllergenChip</item>
+
+        <!-- Secondary renk kullan -->
+        <item name="chipBackgroundColor">@color/text50</item>
+        <item name="chipStrokeColor">@color/text400</item>
+        <item name="android:textColor">@color/secondary</item>
+
+        <item name="checkedIconVisible">true</item>
+        <item name="checkedIcon">@drawable/outline_check_24</item>
+        <item name="closeIconVisible">false</item>
+        <item name="android:checkable">true</item>
+    </style>
+
+    <style name="Shape.AllergenChip" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+
 
 
 </resources>

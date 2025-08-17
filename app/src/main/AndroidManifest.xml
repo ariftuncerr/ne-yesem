@@ -19,10 +19,9 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.preferences.PreferencesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.ui.preferences.Preferences"
-            android:exported="false" />
+            android:exported="false"
+            android:label=""/>
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

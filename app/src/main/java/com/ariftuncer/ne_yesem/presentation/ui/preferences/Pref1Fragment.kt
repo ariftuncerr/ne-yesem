@@ -5,16 +5,49 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.ariftuncer.ne_yesem.R
+import com.ariftuncer.ne_yesem.databinding.FragmentPref1Binding
+import com.ariftuncer.ne_yesem.presentation.ui.preferences.prefAdapters.Pref1Adapter
+import com.ariftuncer.ne_yesem.presentation.ui.preferences.prefAdapters.Pref1Card
 
 class Pref1Fragment : Fragment() {
+    private lateinit var binding : FragmentPref1Binding
 
+    private val items = listOf(
+        Pref1Card(R.drawable.keto, "Klasik"),
+        Pref1Card(R.drawable.keto, "Şekersiz"),
+        Pref1Card(R.drawable.keto, "Vejetaryen"),
+        Pref1Card(R.drawable.keto, "Vegan"),
+        Pref1Card(R.drawable.keto, "Ketojenik"),
+    )
+    private var selectedIndex: Int = -1
+    private val adapter by lazy { Pref1Adapter(items, ::onCardClick) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pref1, container, false)
+        binding = FragmentPref1Binding.inflate(inflater, container, false)
+        val view : View = binding.root
+        listeners()
+        binding.pref1RecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.pref1RecyclerView.adapter = adapter
+        return view
+    }
+    private fun listeners() {
+        binding.pref1NextBtn.setOnClickListener {
+            requireActivity().findViewById<ViewPager2>(R.id.prefViewPager).currentItem = 1
+        }
+        binding.pref1SkipText.setOnClickListener {
+            requireActivity().findViewById<ViewPager2>(R.id.prefViewPager).currentItem = 2
+        }
+    }
+    private fun onCardClick(position: Int) {
+        if (selectedIndex != position) {
+            selectedIndex = position
+            adapter.setSelected(position)
+        }
     }
 }
