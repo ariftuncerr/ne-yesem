@@ -44,7 +44,7 @@ class AuthRepositoryImpl(
 
     private suspend fun ensureUserIfNeeded(out: AuthOutcome): AppResult<AuthOutcome> {
         if (!out.isNewUser) return Either.Right(out)
-        val profile = UserProfile(uid = out.user.uid, name = null, phoneNumber = null)
+        val profile = UserProfile(uid = out.user.uid, name = null, phoneNumber = null, email = out.user.email.toString())
         return when (val e = userRemote.ensureUserDocument(profile)) {
             is Either.Left  -> e
             is Either.Right -> Either.Right(out)

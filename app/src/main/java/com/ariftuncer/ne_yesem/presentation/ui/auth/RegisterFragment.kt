@@ -18,6 +18,8 @@ import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.FragmentRegisterBinding
 import com.ariftuncer.ne_yesem.di.AppGraph
 import com.ariftuncer.ne_yesem.presentation.viewmodel.auth.AuthViewModel
+import com.ariftuncer.ne_yesem.presentation.ui.home.HomeActivity
+import com.ariftuncer.ne_yesem.presentation.ui.preferences.PreferencesActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -87,7 +89,6 @@ class RegisterFragment : Fragment() {
 
     private fun setupGoogle() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            // Projende "web_client_id" kullandığını gördüm; değer strings.xml'de olmalı
             .requestIdToken(getString(R.string.web_client_id))
             .requestEmail()
             .build()
@@ -137,7 +138,7 @@ class RegisterFragment : Fragment() {
 
         // Google ile giriş/kayıt
         binding.registerGoogleBtn.setOnClickListener {
-            // Temiz bir oturum için isteğe bağlı signOut
+            // Her zaman hesap seçimi için signOut çağrısı
             googleSignInClient.signOut().addOnCompleteListener {
                 googleLauncher.launch(googleSignInClient.signInIntent)
             }
@@ -162,7 +163,14 @@ class RegisterFragment : Fragment() {
             setLoading(false)
             if (success) {
                 showSnack(message)
-                // TODO: Başarılı kayıt sonrası yönlendirme
+                val isNewUser = viewModel.isNewUserRegister // ViewModel'da bu property olmalı
+                if (isNewUser == true) {
+                    startActivity(Intent(requireContext(), PreferencesActivity::class.java))
+                    requireActivity().finish()
+                } else {
+                    startActivity(Intent(requireContext(), HomeActivity::class.java))
+                    requireActivity().finish()
+                }
             } else {
                 showSnack(message.ifBlank { "Kayıt başarısız" })
             }
@@ -172,7 +180,18 @@ class RegisterFragment : Fragment() {
         viewModel.google.observe(viewLifecycleOwner) { (success, message) ->
             setLoading(false)
             showSnack(message.ifBlank { if (success) "Google ile giriş başarılı" else "Google ile giriş başarısız" })
-            // success true ise yönlendirme
+            if (success) {
+                // isNewUser kontrolü için ViewModel'dan AuthOutcome alınmalı
+                // Örnek: viewModel.authOutcome.value?.isNewUser
+                val isNewUser = viewModel.isNewUserGoogle // ViewModel'da bu property olmalı
+                if (isNewUser == true) {
+                    startActivity(Intent(requireContext(), PreferencesActivity::class.java))
+                    requireActivity().finish()
+                } else {
+                    startActivity(Intent(requireContext(), HomeActivity::class.java))
+                    requireActivity().finish()
+                }
+            }
         }
 
         // Facebook sonucu

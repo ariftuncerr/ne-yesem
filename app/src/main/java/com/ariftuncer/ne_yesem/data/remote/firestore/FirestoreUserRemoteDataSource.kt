@@ -21,7 +21,8 @@ class FirestoreUserRemoteDataSource(
                     mapOf(
                         "uid" to profile.uid,
                         "name" to profile.name,
-                        "phoneNumber" to profile.phoneNumber
+                        "phoneNumber" to profile.phoneNumber,
+                        "email" to profile.email, // email eklendi
                     )
                 ).await()
             }
@@ -37,7 +38,8 @@ class FirestoreUserRemoteDataSource(
                 UserProfile(
                     uid = uid,
                     name = data["name"] as? String,
-                    phoneNumber = data["phoneNumber"] as? String
+                    phoneNumber = data["phoneNumber"] as? String,
+                    email = (data["email"] as? String).toString()
                 )
             )
         }.getOrElse { Either.Left(AppError.Network(it.message)) }

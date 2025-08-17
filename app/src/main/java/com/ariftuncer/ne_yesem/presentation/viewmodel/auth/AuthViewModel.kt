@@ -3,6 +3,7 @@ package com.ariftuncer.ne_yesem.presentation.viewmodel.auth
 import androidx.lifecycle.*
 import com.ariftuncer.ne_yesem.core.result.Either
 import com.ariftuncer.ne_yesem.core.result.readableMessage
+import com.ariftuncer.ne_yesem.domain.model.AuthOutcome
 import com.ariftuncer.ne_yesem.domain.usecase.auth.*
 import com.ne_yesem.domain.usecase.auth.SignUpWithEmail
 import kotlinx.coroutines.launch
@@ -30,24 +31,41 @@ class AuthViewModel(
     private val _reset = MutableLiveData<Pair<Boolean, String>>()
     val reset: LiveData<Pair<Boolean, String>> = _reset
 
+    private var lastAuthOutcome: AuthOutcome? = null
+    val isNewUserRegister: Boolean?
+        get() = lastAuthOutcome?.isNewUser
+    val isNewUserGoogle: Boolean?
+        get() = lastAuthOutcome?.isNewUser
+    val isNewUserLogin: Boolean?
+        get() = lastAuthOutcome?.isNewUser
+
     fun login(email: String, password: String) = viewModelScope.launch {
         when (val r = signInEmail(email, password)) {
             is Either.Left  -> _login.postValue(false to r.value.readableMessage())
-            is Either.Right -> _login.postValue(true to "Giriş başarılı")
+            is Either.Right -> {
+                lastAuthOutcome = r.value
+                _login.postValue(true to "Giriş başarılı")
+            }
         }
     }
 
     fun register(email: String, password: String) = viewModelScope.launch {
         when (val r = signUpEmail(email, password)) {
             is Either.Left  -> _register.postValue(false to r.value.readableMessage())
-            is Either.Right -> _register.postValue(true to "Kayıt başarılı")
+            is Either.Right -> {
+                lastAuthOutcome = r.value
+                _register.postValue(true to "Kayıt başarılı")
+            }
         }
     }
 
     fun loginWithGoogle(idToken: String) = viewModelScope.launch {
         when (val r = signInGoogle(idToken)) {
             is Either.Left  -> _google.postValue(false to r.value.readableMessage())
-            is Either.Right -> _google.postValue(true to "Google ile giriş başarılı")
+            is Either.Right -> {
+                lastAuthOutcome = r.value
+                _google.postValue(true to "Google ile giriş başarılı")
+            }
         }
     }
 
