@@ -1,11 +1,12 @@
 package com.ariftuncer.ne_yesem.data.repository
+
 import com.ariftuncer.ne_yesem.core.result.AppResult
 import com.ariftuncer.ne_yesem.core.result.Either
+import com.ariftuncer.ne_yesem.data.remote.auth.AuthService
+import com.ariftuncer.ne_yesem.data.remote.firestore.UserRemoteDataSource
 import com.ariftuncer.ne_yesem.domain.model.AuthOutcome
 import com.ariftuncer.ne_yesem.domain.model.AuthUser
 import com.ariftuncer.ne_yesem.domain.repository.AuthRepository
-import com.ariftuncer.ne_yesem.data.remote.auth.AuthService
-import com.ariftuncer.ne_yesem.data.remote.firestore.UserRemoteDataSource
 import com.ne_yesem.domain.model.UserProfile
 import kotlinx.coroutines.flow.Flow
 
@@ -44,7 +45,12 @@ class AuthRepositoryImpl(
 
     private suspend fun ensureUserIfNeeded(out: AuthOutcome): AppResult<AuthOutcome> {
         if (!out.isNewUser) return Either.Right(out)
-        val profile = UserProfile(uid = out.user.uid, name = null, phoneNumber = null, email = out.user.email.toString())
+        val profile = UserProfile(
+            uid = out.user.uid,
+            name = null,
+            phoneNumber = null,
+            email = out.user.email.toString()
+        )
         return when (val e = userRemote.ensureUserDocument(profile)) {
             is Either.Left  -> e
             is Either.Right -> Either.Right(out)
