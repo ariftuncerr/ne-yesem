@@ -1,4 +1,3 @@
-// domain/repository/PreferencesRepository.kt
 package com.ariftuncer.ne_yesem.domain.repository
 
 import com.ariftuncer.ne_yesem.domain.model.Preferences

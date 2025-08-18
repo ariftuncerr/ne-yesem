@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
     id("kotlin-kapt")
+    id ("com.google.dagger.hilt.android")
+
 }
 
 android {
@@ -56,12 +58,12 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     //coroutines and lifecycle
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.1")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-    implementation ("androidx.fragment:fragment-ktx:1.6.2")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.9.2")
+    implementation ("androidx.fragment:fragment-ktx:1.8.9")
 
     implementation (libs.play.services.auth) // Google Sign-In
     implementation (libs.firebase.auth.ktx)  // Firebase Auth
@@ -69,8 +71,8 @@ dependencies {
     implementation ("com.facebook.android:facebook-login:latest.release") // Facebook Login
 
     // Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:2.7.2")
+    kapt("androidx.room:room-compiler:2.7.2")
 
     // Kotlin Coroutines ile Room
     implementation("androidx.room:room-ktx:2.6.1")
@@ -79,8 +81,8 @@ dependencies {
     implementation ("com.google.android.flexbox:flexbox:3.0.0")
     implementation ("com.google.android.material:material:<latest>")
 
-
-
+    implementation ("com.google.dagger:hilt-android:2.56.2")
+    kapt ("com.google.dagger:hilt-compiler:2.56.2")
 
 
 }

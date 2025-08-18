@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.FragmentPref2Binding
 import com.google.android.flexbox.AlignItems
@@ -15,13 +16,17 @@ import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import androidx.viewpager2.widget.ViewPager2
+import com.ariftuncer.ne_yesem.presentation.preferences.PreferencesViewModel
 import com.ariftuncer.ne_yesem.presentation.ui.preferences.prefAdapters.AllergenTag
 import com.ariftuncer.ne_yesem.presentation.ui.preferences.prefAdapters.Pref2Adapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class Pref2Fragment : Fragment() {
 
     private var _binding: FragmentPref2Binding? = null
     private val binding get() = _binding!!
+    private val vm: PreferencesViewModel by activityViewModels()
 
     private val adapter by lazy { Pref2Adapter(::toggleAt) }
 
@@ -79,6 +84,12 @@ class Pref2Fragment : Fragment() {
             val it = items[position]
             items[position] = it.copy(selected = !it.selected)
             submit()
+            // Seçili ise ekle, değilse çıkar
+            if (items[position].selected) {
+                vm.toggleAllergen(it.label)
+            } else {
+                vm.removeAllergen(it.label)
+            }
         }
     }
 
@@ -86,9 +97,10 @@ class Pref2Fragment : Fragment() {
         val text = binding.etAddProduct.text?.toString()?.trim().orEmpty()
         val exists = items.any { it.label.equals(text, ignoreCase = true) }
         if (text.length in 2..30 && !exists) {
-            items += AllergenTag(text, selected = true) // yeni ekleneni seçili getir
+            items += AllergenTag(text, selected = true)
             binding.etAddProduct.text = null
             submit()
+            vm.toggleAllergen(text) // elle eklenen de seçili olarak ekleniyor
         } else {
             binding.etAddProduct.error = "Geçerli bir ürün girin"
         }

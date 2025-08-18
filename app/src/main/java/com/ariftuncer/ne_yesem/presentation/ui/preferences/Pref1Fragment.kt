@@ -5,15 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.FragmentPref1Binding
+import com.ariftuncer.ne_yesem.presentation.preferences.PreferencesViewModel
 import com.ariftuncer.ne_yesem.presentation.ui.preferences.prefAdapters.Pref1Adapter
 import com.ariftuncer.ne_yesem.presentation.ui.preferences.prefAdapters.Pref1Card
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class Pref1Fragment : Fragment() {
     private lateinit var binding : FragmentPref1Binding
+    private val vm: PreferencesViewModel by activityViewModels()
 
     private val items = listOf(
         Pref1Card(R.drawable.keto, "Klasik"),
@@ -47,6 +52,7 @@ class Pref1Fragment : Fragment() {
     private fun onCardClick(position: Int) {
         if (selectedIndex != position) {
             selectedIndex = position
+            vm.selectDiet(items[position].text)
             adapter.setSelected(position)
         }
     }

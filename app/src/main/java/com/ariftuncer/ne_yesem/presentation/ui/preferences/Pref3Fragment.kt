@@ -7,16 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.FragmentPref3Binding
+import com.ariftuncer.ne_yesem.presentation.preferences.PreferencesViewModel
 import com.ariftuncer.ne_yesem.presentation.ui.preferences.prefAdapters.AllergenTag
 import com.ariftuncer.ne_yesem.presentation.ui.preferences.prefAdapters.Pref3Adapter
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class Pref3Fragment : Fragment() {
 
     private var _binding: FragmentPref3Binding? = null
     private val binding get() = _binding!!
+    private val vm: PreferencesViewModel by activityViewModels()
 
     private val adapter by lazy { Pref3Adapter(::toggleAt) }
 
@@ -58,6 +64,16 @@ class Pref3Fragment : Fragment() {
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) { addFromInput(); true } else false
         }
 
+        binding.pref3StartBtn.setOnClickListener {
+            vm.save { ok ->
+                if (ok) {
+                    requireActivity().finish()
+                } else {
+                    Snackbar.make(binding.root,"Tercihler kaydedilemedi", Snackbar.LENGTH_LONG).show()
+                }
+            }
+        }
+
     }
 
     private fun toggleAt(position: Int) {
@@ -65,6 +81,12 @@ class Pref3Fragment : Fragment() {
             val it = items[position]
             items[position] = it.copy(selected = !it.selected)
             submit()
+            // Seçili ise ekle, değilse çıkar
+            if (items[position].selected) {
+                vm.toggleUnliked(it.label)
+            } else {
+                vm.removeUnliked(it.label)
+            }
         }
     }
 
@@ -72,9 +94,10 @@ class Pref3Fragment : Fragment() {
         val text = binding.etAddProduct.text?.toString()?.trim().orEmpty()
         val exists = items.any { it.label.equals(text, ignoreCase = true) }
         if (text.length in 2..30 && !exists) {
-            items += AllergenTag(text, selected = true) // yeni ekleneni seçili getir
+            items += AllergenTag(text, selected = true)
             binding.etAddProduct.text = null
             submit()
+            vm.toggleUnliked(text) // elle eklenen de seçili olarak ekleniyor
         } else {
             binding.etAddProduct.error = "Geçerli bir ürün girin"
         }
