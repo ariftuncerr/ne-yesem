@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <!-- Anasayfa -->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.HomeFragment"
+        android:label="Anasayfa"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- Favoriler -->
+    <fragment
+        android:id="@+id/nav_favorite"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.FavoriteFragment"
+        android:label="Favoriler"
+        tools:layout="@layout/fragment_favorite" />
+
+    <!-- Dolabım -->
+    <fragment
+        android:id="@+id/nav_fridge"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.FridgeFragment"
+        android:label="Dolabım"
+        tools:layout="@layout/fragment_fridge" />
+
+    <!-- Profil -->
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.ProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

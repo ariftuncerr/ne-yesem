@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/si_home_line"
+        android:title="Anasayfa" />
+
+    <item
+        android:id="@+id/nav_favorite"
+        android:icon="@drawable/solar_calendar_lienar"
+        android:title="Favoriler" />
+
+    <item android:title="" /> <!-- Ortadaki yuvarlak buton -->
+
+    <item
+        android:id="@+id/nav_fridge"
+        android:icon="@drawable/carbon_fruit_bowl"
+        android:title="Dolabım" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/iconamoon_profile_light"
+        android:title="Profil" />
+</menu>

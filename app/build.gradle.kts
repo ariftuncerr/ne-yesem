@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    val nav_version = "2.9.3"
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -83,6 +84,11 @@ dependencies {
 
     implementation ("com.google.dagger:hilt-android:2.56.2")
     kapt ("com.google.dagger:hilt-compiler:2.56.2")
+
+
+    // navigation view and fragment
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
 
 
 }

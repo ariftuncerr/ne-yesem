@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="ne-yesem.app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-08-02T16:39:58.041831Z">
+        <DropdownSelection timestamp="2025-08-18T21:38:55.299107800Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\arif6\.android\avd\Pixel_8.avd" />
