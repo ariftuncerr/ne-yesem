@@ -29,7 +29,48 @@
     <!-- Profil -->
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.ProfileFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.ProfileFragment"
         android:label="Profil"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_changeEmailFragment"
+            app:destination="@id/changeEmailFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingListFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.ShoppingListFragment"
+        android:label="fragment_shopping_list"
+        tools:layout="@layout/fragment_shopping_list" />
+    <fragment
+        android:id="@+id/changeEmailFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.ChangeEmailFragment"
+        android:label="fragment_change_email"
+        tools:layout="@layout/fragment_change_email" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.AccountFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.SettingsFragment"
+        android:label="fragment_settings2"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

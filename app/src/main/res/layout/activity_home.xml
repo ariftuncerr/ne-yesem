@@ -45,6 +45,7 @@
             app:subtitle="Bugün ne pişireceksin?"
             app:subtitleTextColor="@color/text600"
             app:title="Merhaba"
+            app:titleCentered="false"
             app:titleTextColor="@color/text950" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
