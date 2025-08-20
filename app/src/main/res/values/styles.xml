@@ -170,7 +170,7 @@
         <item name="boxStrokeColor">@color/input_storke_color</item>
         <item name="hintTextColor">@color/input_hint_color</item>
         <item name="android:textColorHint">@color/input_hint_color</item>
-        <item name="boxBackgroundColor">@color/primary50</item>
+        <item name="boxBackgroundColor">@color/ic_launcher_background</item>
         <item name="endIconTint">@color/input_tint_color</item>
         <item name="startIconTint">@color/input_tint_color</item>
 

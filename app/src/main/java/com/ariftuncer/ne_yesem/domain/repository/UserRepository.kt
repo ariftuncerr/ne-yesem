@@ -13,5 +13,6 @@ interface UserRepository {
 
     // REMOTE (Firestore) — yedek/cihaz değişimi için
     suspend fun ensureRemoteProfile(uid: String, name: String?, phone: String?): AppResult<Unit>
-    suspend fun pullRemoteToLocal(uid: String): AppResult<UserProfile?>
+    suspend fun getProfile(uid: String): AppResult<UserProfile>
+
 }

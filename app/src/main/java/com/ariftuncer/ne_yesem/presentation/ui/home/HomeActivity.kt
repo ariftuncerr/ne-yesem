@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.ActivityHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +28,6 @@ class HomeActivity : AppCompatActivity() {
         setSupportActionBar(binding.materialToolbar2)
         val navController = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)?.findNavController()
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController!!)
-
-
     }
+
 }

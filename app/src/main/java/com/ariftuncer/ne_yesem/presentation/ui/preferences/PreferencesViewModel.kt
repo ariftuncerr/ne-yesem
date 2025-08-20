@@ -1,5 +1,7 @@
 package com.ariftuncer.ne_yesem.presentation.preferences
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ariftuncer.ne_yesem.domain.model.Preferences
@@ -67,5 +69,34 @@ class PreferencesViewModel @Inject constructor(
         _state.value = _state.value.copy(unlikedFoods = s.toList())
     }
 // ...existing code...
+
+    private val _preferences = MutableLiveData<Preferences?>()
+    val preferences: LiveData<Preferences?> = _preferences
+
+    private val _loading = MutableLiveData(false)
+    val loading: LiveData<Boolean> = _loading
+
+    private val _error = MutableLiveData<String?>(null)
+    val error: LiveData<String?> = _error
+
+
+    fun getPreferences() {
+        val u = auth.currentUser ?: run {
+            _error.value = "Oturum bulunamadı"
+            return
+        }
+        _loading.value = true
+        viewModelScope.launch {
+            try {
+                val prefs = getPreferences(u.uid)
+                _preferences.value = prefs ?: Preferences()
+                _error.value = null
+            } catch (e: Exception) {
+                _error.value = e.message
+            } finally {
+                _loading.value = false
+            }
+        }
+    }
 
 }

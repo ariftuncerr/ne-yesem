@@ -63,7 +63,7 @@
             app:layout_constraintTop_toBottomOf="@+id/settings_nameTxt">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/settings_nameEditTxt"
+                android:id="@+id/nameEditTxt"
                 style="@style/Widget.MyApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -108,7 +108,7 @@
             app:layout_constraintTop_toBottomOf="@+id/settings_surnameTxt">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/settings_surnameEditTxt"
+                android:id="@+id/surNameEditTxt"
                 style="@style/Widget.MyApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -140,10 +140,11 @@
             app:layout_constraintTop_toBottomOf="@+id/settings_telText">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/settings_telEditTxt"
+                android:id="@+id/phoneEditTxt"
                 style="@style/Widget.MyApp.EditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:autoText="false" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

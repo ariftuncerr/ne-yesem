@@ -3,6 +3,7 @@ package com.ariftuncer.ne_yesem.data.remote.auth
 import com.ariftuncer.ne_yesem.core.result.AppResult
 import com.ariftuncer.ne_yesem.domain.model.AuthOutcome
 import com.ariftuncer.ne_yesem.domain.model.AuthUser
+import com.ne_yesem.domain.model.UserProfile
 import kotlinx.coroutines.flow.Flow
 
 interface AuthService {

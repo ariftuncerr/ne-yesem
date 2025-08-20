@@ -3,6 +3,7 @@ package com.ariftuncer.ne_yesem.domain.repository
 import com.ariftuncer.ne_yesem.core.result.AppResult
 import com.ariftuncer.ne_yesem.domain.model.AuthOutcome
 import com.ariftuncer.ne_yesem.domain.model.AuthUser
+import com.ne_yesem.domain.model.UserProfile
 import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
@@ -13,4 +14,5 @@ interface AuthRepository {
     suspend fun sendPasswordReset(email: String): AppResult<Unit>
     fun observeAuthUser(): Flow<AuthUser?>
     suspend fun signOut(): AppResult<Unit>
+
 }

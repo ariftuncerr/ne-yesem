@@ -7,6 +7,7 @@ import com.ariftuncer.ne_yesem.data.remote.firestore.UserRemoteDataSource
 import com.ariftuncer.ne_yesem.domain.model.AuthOutcome
 import com.ariftuncer.ne_yesem.domain.model.AuthUser
 import com.ariftuncer.ne_yesem.domain.repository.AuthRepository
+import com.google.firebase.auth.EmailAuthProvider
 import com.ne_yesem.domain.model.UserProfile
 import kotlinx.coroutines.flow.Flow
 
@@ -56,4 +57,5 @@ class AuthRepositoryImpl(
             is Either.Right -> Either.Right(out)
         }
     }
+
 }
