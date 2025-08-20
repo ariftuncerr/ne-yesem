@@ -22,9 +22,13 @@
     <!-- Dolabım -->
     <fragment
         android:id="@+id/nav_fridge"
-        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.FridgeFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.fridge.FridgeFragment"
         android:label="Dolabım"
-        tools:layout="@layout/fragment_fridge" />
+        tools:layout="@layout/fragment_fridge" >
+        <action
+            android:id="@+id/action_nav_fridge_to_addPantryFragment"
+            app:destination="@id/addPantryFragment" />
+    </fragment>
 
     <!-- Profil -->
     <fragment
@@ -73,4 +77,9 @@
         android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.SettingsFragment"
         android:label="fragment_settings2"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/addPantryFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.fridge.AddPantryFragment"
+        android:label="fragment_add_pantry"
+        tools:layout="@layout/fragment_add_pantry" />
 </navigation>

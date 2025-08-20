@@ -1,4 +1,4 @@
-package com.ariftuncer.ne_yesem.domain.model
+package com.ariftuncer.ne_yesem.domain.model.user
 
 
 /** google ve facebook için ilk girişte "sign up" olup olmadığını buradan anlarız. */

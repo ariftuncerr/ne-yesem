@@ -1,4 +1,3 @@
-// presentation/profile/ProfileViewModel.kt
 package com.ariftuncer.ne_yesem.presentation.ui.profile
 
 import androidx.lifecycle.LiveData
@@ -26,7 +25,6 @@ class ProfileViewModel @Inject constructor(
     private val _profile = MutableLiveData<UserProfile?>()
     val profile: LiveData<UserProfile?> = _profile
 
-    // İstersen basit durum bilgileri:
     private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean> = _loading
 
@@ -42,7 +40,6 @@ class ProfileViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val p = getUserProfile(u.uid)
-                // email Firestore’da boş olabilir; auth’tan tamamlayalım
                 _profile.value = p?.copy(email = u.email.orEmpty())
                     ?: UserProfile(
                         email = u.email.orEmpty(),

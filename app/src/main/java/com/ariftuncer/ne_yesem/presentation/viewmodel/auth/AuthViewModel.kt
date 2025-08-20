@@ -3,7 +3,7 @@ package com.ariftuncer.ne_yesem.presentation.viewmodel.auth
 import androidx.lifecycle.*
 import com.ariftuncer.ne_yesem.core.result.Either
 import com.ariftuncer.ne_yesem.core.result.readableMessage
-import com.ariftuncer.ne_yesem.domain.model.AuthOutcome
+import com.ariftuncer.ne_yesem.domain.model.user.AuthOutcome
 import com.ariftuncer.ne_yesem.domain.usecase.auth.*
 import com.ne_yesem.domain.usecase.auth.SignUpWithEmail
 import kotlinx.coroutines.launch

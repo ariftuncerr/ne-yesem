@@ -1,4 +1,4 @@
-package com.ariftuncer.ne_yesem.domain.model
+package com.ariftuncer.ne_yesem.domain.model.user
 
 data class AuthUser(
     val uid: String,

@@ -1,9 +1,8 @@
 package com.ariftuncer.ne_yesem.domain.repository
 
 import com.ariftuncer.ne_yesem.core.result.AppResult
-import com.ariftuncer.ne_yesem.domain.model.AuthOutcome
-import com.ariftuncer.ne_yesem.domain.model.AuthUser
-import com.ne_yesem.domain.model.UserProfile
+import com.ariftuncer.ne_yesem.domain.model.user.AuthOutcome
+import com.ariftuncer.ne_yesem.domain.model.user.AuthUser
 import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {

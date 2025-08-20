@@ -17,6 +17,7 @@ class ShoppingListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setUpComponents()
 
         return inflater.inflate(R.layout.fragment_shopping_list, container, false)
     }

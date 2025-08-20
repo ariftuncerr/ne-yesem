@@ -1,4 +1,4 @@
-package com.ariftuncer.ne_yesem.domain.model
+package com.ariftuncer.ne_yesem.domain.model.user
 import com.google.firebase.auth.FirebaseUser
 
 fun FirebaseUser.toUser(): User {
