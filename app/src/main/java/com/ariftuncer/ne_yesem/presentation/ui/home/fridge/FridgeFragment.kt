@@ -39,6 +39,9 @@ class FridgeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //deneme
+        viewModel.fetchAllItems()
+        // Set up components, RecyclerView, and tabs
         setUpComponents()
         setupRecycler()
         setupTabs()
@@ -95,8 +98,14 @@ class FridgeFragment : Fragment() {
     }
 
     private fun observePantry() {
+        viewModel.items.observe (viewLifecycleOwner){ items ->
+            println("Pantry items: $items")
+
+        }
         viewModel.categoryItems.observe(viewLifecycleOwner) { items ->
+            println("Category items: $items")
             pantryAdapter.submitList(items)
+
         }
     }
 
