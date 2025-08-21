@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.ActivityHomeBinding
-import com.ne_yesem.presentation.ui.recipe.RecipeTestActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,11 +32,6 @@ class HomeActivity : AppCompatActivity() {
         val navController = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)?.findNavController()
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController!!)
 
-        binding.fabRecipes.setOnClickListener {
-            val intent = Intent (this, RecipeTestActivity::class.java)
-            startActivity(intent)
-
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
