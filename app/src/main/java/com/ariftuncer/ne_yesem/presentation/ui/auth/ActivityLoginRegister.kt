@@ -1,5 +1,6 @@
 package com.ariftuncer.ne_yesem.presentation.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.ActivityLoginRegisterBinding
+import com.ariftuncer.ne_yesem.presentation.ui.home.HomeActivity
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
 
 class ActivityLoginRegister : AppCompatActivity() {
 
@@ -15,6 +18,14 @@ class ActivityLoginRegister : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+            return
+        }
+
         enableEdgeToEdge()
         binding = ActivityLoginRegisterBinding.inflate(layoutInflater)
         val view = binding.root
