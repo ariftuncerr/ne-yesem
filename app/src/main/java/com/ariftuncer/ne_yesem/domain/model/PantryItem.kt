@@ -10,8 +10,6 @@ enum class IngredientCategory(val docName: String) {
     DAIRY("dairy")
 }
 
-enum class UnitType { ADET, GR, ML, LT }
-
 data class PantryItem(
     val id: String = "",                      // Firestore doc id
     val name: String,

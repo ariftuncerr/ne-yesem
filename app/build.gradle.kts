@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -5,8 +8,17 @@ plugins {
     id("kotlin-kapt")
     id ("com.google.dagger.hilt.android")
 
+
+}
+configurations.all {
+    exclude(group = "com.intellij", module = "annotations")
 }
 
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(FileInputStream(localPropertiesFile))
+}
 android {
     namespace = "com.ariftuncer.ne_yesem"
     compileSdk = 35
@@ -18,6 +30,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "GEMINI_API_KEY", "\"${localProperties.getProperty("GEMINI_API_KEY")}\"")
+
+
     }
 
     buildTypes {
@@ -38,10 +54,12 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
 }
 
 dependencies {
+    implementation(libs.androidx.room.compiler)
     val nav_version = "2.9.3"
 
     implementation(libs.androidx.core.ktx)
@@ -57,6 +75,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    implementation("org.jetbrains:annotations:24.1.0") // 23.0.0 da olur; 24.x daha güncel
+
 
     //coroutines and lifecycle
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
@@ -89,6 +111,15 @@ dependencies {
     // navigation view and fragment
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")
+
+    //retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    //gemini api
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 
 
 }

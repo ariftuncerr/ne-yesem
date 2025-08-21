@@ -8,14 +8,18 @@
     <!-- Anasayfa -->
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.HomeFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.homepages.HomeFragment"
         android:label="Anasayfa"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
 
     <!-- Favoriler -->
     <fragment
         android:id="@+id/nav_favorite"
-        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.FavoriteFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.favorite.FavoriteFragment"
         android:label="Favoriler"
         tools:layout="@layout/fragment_favorite" />
 
@@ -82,4 +86,21 @@
         android:name="com.ariftuncer.ne_yesem.presentation.ui.home.fridge.AddPantryFragment"
         android:label="fragment_add_pantry"
         tools:layout="@layout/fragment_add_pantry" />
+    <fragment
+        android:id="@+id/recipeTestFragment"
+        android:name="com.ne_yesem.presentation.recipe.RecipeTestFragment"
+        android:label="RecipeTestFragment" />
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.homepages.categories.CategoriesFragment"
+        android:label="CategoriesFragment" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoryItemFragment"
+            app:destination="@id/categoryItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryItemFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.homepages.categories.CategoryItemFragment"
+        android:label="fragment_category_item"
+        tools:layout="@layout/fragment_category_item" />
 </navigation>

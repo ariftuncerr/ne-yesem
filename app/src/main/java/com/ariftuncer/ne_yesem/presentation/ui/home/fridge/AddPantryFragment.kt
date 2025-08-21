@@ -31,7 +31,7 @@ class AddPantryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        
         binding = FragmentAddPantryBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -42,7 +42,6 @@ class AddPantryFragment : Fragment() {
         setupTabs()
         setupRecycler()
         setupAddListener()
-
         binding.addPantries.setOnClickListener {
             val selected = pantryItems.filter { selectedItems.contains(it.id) }
             selected.forEach { viewModel.addItem(it) }
