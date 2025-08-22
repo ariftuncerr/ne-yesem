@@ -25,7 +25,6 @@ class ActivityLoginRegister : AppCompatActivity() {
             finish()
             return
         }
-
         enableEdgeToEdge()
         binding = ActivityLoginRegisterBinding.inflate(layoutInflater)
         val view = binding.root

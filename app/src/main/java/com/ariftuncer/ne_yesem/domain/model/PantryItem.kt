@@ -1,4 +1,3 @@
-// domain/model/PantryItem.kt
 package com.ne_yesem.domain.model
 
 import com.google.firebase.Timestamp
@@ -11,12 +10,15 @@ enum class IngredientCategory(val docName: String) {
 }
 
 data class PantryItem(
-    val id: String = "",                      // Firestore doc id
+    val id: String = "",
     val name: String,
     val category: IngredientCategory,
     val qty: Int,
     val unit: UnitType,
-    val expiryAt: Timestamp? = null,          // Son kullanma tarihi
+    val expiryAt: Timestamp? = null,
     val createdAt: Timestamp? = null,
     val updatedAt: Timestamp? = null
 )
+enum class UnitType {
+    ADET, KG, GRAM, LITER, MILLILITER
+}

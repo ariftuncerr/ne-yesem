@@ -58,7 +58,8 @@ class PantryAdapter(
 
 fun UnitType.displayName(): String = when(this) {
     UnitType.ADET -> "adet"
-    UnitType.GR -> "gr"
-    UnitType.ML -> "ml"
-    UnitType.LT -> "lt"
+    UnitType.GRAM -> "gr"
+    UnitType.MILLILITER -> "ml"
+    UnitType.LITER -> "lt"
+    UnitType.KG -> "kg"
 }

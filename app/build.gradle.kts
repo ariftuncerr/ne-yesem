@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id ("com.google.dagger.hilt.android")
 
 
@@ -32,6 +32,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "GEMINI_API_KEY", "\"${localProperties.getProperty("GEMINI_API_KEY")}\"")
+        buildConfigField("String", "SPOONACULAR_API_KEY", "\"${project.findProperty("SPOONACULAR_API_KEY")}\"")
+
 
 
     }
@@ -60,6 +62,8 @@ android {
 
 dependencies {
     implementation(libs.androidx.room.compiler)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     val nav_version = "2.9.3"
 
     implementation(libs.androidx.core.ktx)
@@ -95,7 +99,7 @@ dependencies {
 
     // Room
     implementation("androidx.room:room-runtime:2.7.2")
-    kapt("androidx.room:room-compiler:2.7.2")
+    ksp("androidx.room:room-compiler:2.7.2")
 
     // Kotlin Coroutines ile Room
     implementation("androidx.room:room-ktx:2.6.1")
@@ -105,7 +109,7 @@ dependencies {
     implementation ("com.google.android.material:material:<latest>")
 
     implementation ("com.google.dagger:hilt-android:2.56.2")
-    kapt ("com.google.dagger:hilt-compiler:2.56.2")
+    ksp ("com.google.dagger:hilt-compiler:2.56.2")
 
 
     // navigation view and fragment
@@ -118,6 +122,8 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
+    //glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 
 }
