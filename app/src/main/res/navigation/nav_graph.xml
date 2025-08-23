@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_nav_home_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
     </fragment>
 
     <!-- Favoriler -->
@@ -103,4 +106,9 @@
         android:name="com.ariftuncer.ne_yesem.presentation.ui.home.homepages.categories.CategoryItemFragment"
         android:label="fragment_category_item"
         tools:layout="@layout/fragment_category_item" />
+    <fragment
+        android:id="@+id/recipeDetailFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.recipe.RecipeDetailFragment"
+        android:label="fragment_recipe_detail"
+        tools:layout="@layout/fragment_recipe_detail" />
 </navigation>

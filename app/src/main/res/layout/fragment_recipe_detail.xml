@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="350dp"
         android:layout_height="350dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -54,10 +55,14 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:visibility="gone">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -253,7 +258,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_backround"
                 android:backgroundTint="@color/bgSalad"
                 android:src="@drawable/time"
@@ -264,8 +269,8 @@
                 android:id="@+id/personsBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_backround"
                 android:backgroundTint="@color/bgMainCourse"
                 android:src="@drawable/persons"
@@ -276,8 +281,8 @@
                 android:id="@+id/calorieBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_backround"
                 android:backgroundTint="@color/bgBreakfast"
                 android:src="@drawable/calori"
@@ -288,8 +293,8 @@
                 android:id="@+id/typeBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_backround"
                 android:backgroundTint="@color/bgAppetizer"
                 android:src="@drawable/ctg"

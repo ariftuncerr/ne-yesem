@@ -81,7 +81,11 @@ class HomeFragment : Fragment() {
     }
     private fun setupRecommendRv() {
         recommendAdapter = RecommendAdapter { clickedId ->
-            // TODO: Detay sayfasına geçişi sonra ekleyeceğiz
+            val args = Bundle().apply { putInt("recipeId", clickedId) }
+            findNavController().navigate(
+                R.id.action_nav_home_to_recipeDetailFragment,
+                args
+            )
         }
         binding.rvRecommends.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
