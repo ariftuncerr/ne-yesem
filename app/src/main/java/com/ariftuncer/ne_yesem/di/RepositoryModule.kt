@@ -1,6 +1,8 @@
 package com.ariftuncer.ne_yesem.di
 
+import com.ariftuncer.ne_yesem.data.repository.FavoritesRepositoryImpl
 import com.ariftuncer.ne_yesem.data.repository.RecipeRepositoryImpl
+import com.ariftuncer.ne_yesem.domain.repository.FavoritesRepository
 import com.ariftuncer.ne_yesem.domain.repository.RecipeRepository
 import dagger.Binds
 import dagger.Module
@@ -16,4 +18,11 @@ abstract class RepositoryModule {
     abstract fun bindRecipeRepository(
         impl: RecipeRepositoryImpl
     ): RecipeRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindFavoritesRepository(
+        impl: FavoritesRepositoryImpl
+    ): FavoritesRepository
+
 }

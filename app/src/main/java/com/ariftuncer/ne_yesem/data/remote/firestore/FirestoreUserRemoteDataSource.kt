@@ -1,14 +1,15 @@
-// data/remote/firestore/FirestoreUserRemoteDataSource.kt
 package com.ariftuncer.ne_yesem.data.remote.firestore
 
 import com.ariftuncer.ne_yesem.core.result.AppError
 import com.ariftuncer.ne_yesem.core.result.AppResult
 import com.ariftuncer.ne_yesem.core.result.Either
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ne_yesem.domain.model.UserProfile
 import kotlinx.coroutines.tasks.await
+import javax.inject.Inject
 
-class FirestoreUserRemoteDataSource(
+class FirestoreUserRemoteDataSource @Inject constructor(
     private val db: FirebaseFirestore
 ) : UserRemoteDataSource {
 
@@ -43,4 +44,26 @@ class FirestoreUserRemoteDataSource(
                 )
             )
         }.getOrElse { Either.Left(AppError.Network(it.message)) }
+
+    override suspend fun addFavorite(uid: String, recipeId: Int) {
+        db.collection("users").document(uid)
+            .collection("favorites")
+            .document(recipeId.toString())
+            .set(mapOf("id" to recipeId, "createdAt" to FieldValue.serverTimestamp()))
+            .await()
+    }
+
+    override suspend fun removeFavorite(uid: String, recipeId: Int) {
+        db.collection("users").document(uid)
+            .collection("favorites")
+            .document(recipeId.toString())
+            .delete()
+            .await()
+    }
+
+    override suspend fun getFavoriteIds(uid: String): List<Int> {
+        val snaps = db.collection("users").document(uid)
+            .collection("favorites").get().await()
+        return snaps.documents.mapNotNull { it.id.toIntOrNull() }
+    }
 }

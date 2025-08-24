@@ -1,7 +1,9 @@
 package com.ariftuncer.ne_yesem.data.remote.api
 import RecipeDetailDto
 import com.ariftuncer.ne_yesem.BuildConfig
+import com.ariftuncer.ne_yesem.data.remote.dto.ComplexSearchResponseDto
 import com.ariftuncer.ne_yesem.data.remote.dto.FindByIngredientsDto
+import com.ariftuncer.ne_yesem.data.remote.dto.RecipeInfoBriefDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -20,4 +22,18 @@ interface SpoonApi {
         @Path("id") id: Int,
         @Query("includeNutrition") includeNutrition: Boolean = true,
     ): RecipeDetailDto
+
+    @GET("recipes/complexSearch")
+    suspend fun searchByDishType(
+        @Query("type") dishType: String,
+        @Query("number") number: Int = 20,
+        @Query("addRecipeInformation") addInfo: Boolean = true
+    ): ComplexSearchResponseDto
+
+    @GET("recipes/informationBulk")
+    suspend fun getRecipeInformationBulk(
+        @Query("ids") ids: String,
+        @Query("includeNutrition") includeNutrition: Boolean = false
+    ): List<RecipeInfoBriefDto>
+
 }

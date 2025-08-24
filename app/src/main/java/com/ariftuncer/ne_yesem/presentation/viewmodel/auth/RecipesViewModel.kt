@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ariftuncer.ne_yesem.domain.model.DishTypeRecipe
 import com.ariftuncer.ne_yesem.domain.model.RecipeItem
 import com.ariftuncer.ne_yesem.domain.repository.RecipeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,6 @@ class RecipesViewModel @Inject constructor(
     private val repo: RecipeRepository
 ) : ViewModel() {
 
-    // UI state kullanmıyoruz; çağıran yer direkt observe edebilir.
     private val _recommended = MutableLiveData<List<RecipeItem>>()
     val recommended: LiveData<List<RecipeItem>> = _recommended
 
@@ -26,4 +26,15 @@ class RecipesViewModel @Inject constructor(
                 .onFailure { _recommended.postValue(emptyList()) }
         }
     }
+    private val _byDishType = MutableLiveData<List<DishTypeRecipe>>()
+    val byDishType: LiveData<List<DishTypeRecipe>> = _byDishType
+
+    fun loadByDishType(type: String, number: Int = 20) {
+        viewModelScope.launch {
+            runCatching { repo.searchByDishType(type, number) }
+                .onSuccess { _byDishType.postValue(it) }
+                .onFailure { _byDishType.postValue(emptyList()) }
+        }
+    }
+
 }

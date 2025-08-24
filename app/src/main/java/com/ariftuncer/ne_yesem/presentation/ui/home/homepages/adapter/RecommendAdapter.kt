@@ -1,4 +1,4 @@
-package com.ariftuncer.ne_yesem.presentation.recipe
+package com.ariftuncer.ne_yesem.presentation.ui.home.homepages.adapter
 
 import android.view.LayoutInflater
 import android.view.View

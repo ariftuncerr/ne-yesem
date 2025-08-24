@@ -6,4 +6,10 @@ import com.ne_yesem.domain.model.UserProfile
 interface UserRemoteDataSource {
     suspend fun ensureUserDocument(profile: UserProfile): AppResult<Unit>
     suspend fun fetchUserProfile(uid: String): AppResult<UserProfile?>
+
+    //favorite
+    suspend fun addFavorite(uid: String, recipeId: Int)
+    suspend fun removeFavorite(uid: String, recipeId: Int)
+    suspend fun getFavoriteIds(uid: String): List<Int>
+
 }
