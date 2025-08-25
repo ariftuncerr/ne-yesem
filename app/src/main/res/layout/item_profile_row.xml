@@ -15,17 +15,18 @@
         android:src="@drawable/shopping_cart"/>
 
     <!-- Başlık -->
+
+    <!-- Sağ Chevron -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginStart="14dp"
+        android:layout_weight="1"
         android:text="Alışveriş Listelerim"
-        android:textSize="15sp"
-        android:textColor="?attr/colorOnSurface" />
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="15sp" />
 
-    <!-- Sağ Chevron -->
     <ImageView
         android:id="@+id/ivChevron"
         android:layout_width="20dp"

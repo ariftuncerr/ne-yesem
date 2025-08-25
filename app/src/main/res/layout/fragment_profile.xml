@@ -37,6 +37,7 @@
             app:tint="@color/primary50" />
 
         <!-- İsim -->
+
         <TextView
             android:id="@+id/profileNameTxt"
             android:layout_width="wrap_content"
@@ -149,14 +150,16 @@
                         android:id="@+id/editPrefBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
-                        android:clickable="true"
+                        android:elevation="6dp"
                         android:src="@drawable/edit"
-                        android:tint="@color/primary50"
+                        android:translationX="8dp"
+                        android:translationY="8dp"
                         app:backgroundTint="@color/primary"
+                        app:layout_constraintBottom_toTopOf="@+id/tvDiet"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@+id/tvPrefsTitle"
+                        app:tint="@color/primary50" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 

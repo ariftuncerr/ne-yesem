@@ -32,15 +32,11 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpComponents()
-
         val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
 
         adapter = FavoritesAdapter(
-            onClick = { card ->
-                // detaya git (recipeId = card.id)
-            },
-            onHeart = { card ->
-                // favoriler ekranından kaldır
+            onClick = { card -> }, // detay sayfasına git
+            onHeart = { card -> // favoriler ekranından kaldır
                 vm.toggle(uid, card.id, nowFavorite = false)
                 // UI’dan hemen kaldır
                 val newList = currentList().filterNot { it.id == card.id }
@@ -52,6 +48,7 @@ class FavoriteFragment : Fragment() {
         b.rvFavorites.adapter = adapter
 
         vm.cards.observe(viewLifecycleOwner) { list ->
+            b.noRecipeLayout.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
             b.rvFavorites.visibility = if (list.isEmpty()) View.GONE else View.VISIBLE
             adapter.submitList(list)
         }

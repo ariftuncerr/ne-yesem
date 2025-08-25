@@ -35,5 +35,4 @@ interface SpoonApi {
         @Query("ids") ids: String,
         @Query("includeNutrition") includeNutrition: Boolean = false
     ): List<RecipeInfoBriefDto>
-
 }

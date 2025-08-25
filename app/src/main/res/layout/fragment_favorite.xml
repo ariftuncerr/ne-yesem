@@ -67,6 +67,7 @@
             app:layout_constraintTop_toBottomOf="@+id/favoriteSearchLayout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/noRecipeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"

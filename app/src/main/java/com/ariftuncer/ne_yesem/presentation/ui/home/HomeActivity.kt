@@ -33,8 +33,9 @@ class HomeActivity : AppCompatActivity() {
         val navController = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)?.findNavController()
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController!!)
 
-        binding.fabRecipes.setOnClickListener {
-            startActivity(Intent(this, RecipeActivity::class.java))
+        binding.createRecipeFabBtn.setOnClickListener {
+            val intent = Intent(this, RecipeActivity::class.java)
+            startActivity(intent)
         }
     }
 

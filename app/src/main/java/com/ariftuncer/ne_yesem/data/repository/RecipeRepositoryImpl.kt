@@ -9,7 +9,6 @@ import com.ariftuncer.ne_yesem.domain.model.RecipeItem
 import com.ariftuncer.ne_yesem.domain.repository.RecipeRepository
 import javax.inject.Inject
 
-// data/repository/RecipeRepositoryImpl.kt
 class RecipeRepositoryImpl @Inject constructor(
     private val api: SpoonApi
 ) : RecipeRepository {

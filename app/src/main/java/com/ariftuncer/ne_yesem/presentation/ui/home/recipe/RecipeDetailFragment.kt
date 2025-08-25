@@ -13,13 +13,17 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.FragmentRecipeDetailBinding
+import com.ariftuncer.ne_yesem.presentation.viewmodel.FavoritesViewModel
 import com.ariftuncer.ne_yesem.presentation.viewmodel.recipe.RecipeDetailViewModel
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class RecipeDetailFragment : Fragment() {
+    private val favVm: FavoritesViewModel by viewModels()
+    private var currentId: Int = -1
     private lateinit var binding: FragmentRecipeDetailBinding
     private val vm: RecipeDetailViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +43,7 @@ class RecipeDetailFragment : Fragment() {
     @SuppressLint("ResourceAsColor")
     private fun setUpComponents() {
         val bottomBar = requireActivity().findViewById<View>(R.id.bottomNavigationView)
-        val recipeBtn = requireActivity().findViewById<View>(R.id.fab_recipes)
+        val recipeBtn = requireActivity().findViewById<View>(R.id.createRecipeFabBtn)
         val toolbar = requireActivity().findViewById<MaterialToolbar>(R.id.materialToolbar2)
         toolbar.title = ""
         toolbar.isTitleCentered = false
@@ -58,6 +62,9 @@ class RecipeDetailFragment : Fragment() {
 
     private fun setUpDetails() {
         val id = requireArguments().getInt("recipeId")
+        currentId = id
+        setupFavoriteHeart(id)
+
         vm.load(id)
         println("Recipe ID: $id")
 
@@ -90,5 +97,36 @@ class RecipeDetailFragment : Fragment() {
             }.attach()
         }
 
+
     }
+    private fun renderHeart(isFav: Boolean) {
+        binding.recipeBtnLike.setImageResource(
+            if (isFav) R.drawable.baseline_favorite_24 else R.drawable.no_fav_24
+        )
+    }
+    private fun setupFavoriteHeart(recipeId: Int) {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
+
+        // İlk açılışta favori ID'lerini çek (ekranlar arası paylaşılan VM ise bir kez çeker)
+        if (favVm.ids.value.isNullOrEmpty()) favVm.refresh(uid)
+
+        // Başlangıç görünümü
+        var isFav = favVm.ids.value?.contains(recipeId) == true
+        renderHeart(isFav)
+
+        // Kalp tıklandığında → optimistik toggle + Firestore yaz/sil
+        binding.recipeBtnLike.setOnClickListener {
+            isFav = !isFav
+            renderHeart(isFav)
+            favVm.toggle(uid, recipeId, nowFavorite = isFav)
+        }
+
+        // Dışarıdan (başka ekrandan) değişirse, kalbi senkron tut
+        favVm.ids.observe(viewLifecycleOwner) { ids ->
+            renderHeart(ids.contains(recipeId))
+        }
+    }
+
+
+
 }

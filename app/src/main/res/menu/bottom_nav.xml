@@ -11,7 +11,9 @@
         android:icon="@drawable/solar_calendar_lienar"
         android:title="Favoriler" />
 
-    <item android:title="" /> <!-- Ortadaki yuvarlak buton -->
+    <item
+        android:title=""
+        app:showAsAction="never" /> <!-- Ortadaki yuvarlak buton -->
 
     <item
         android:id="@+id/nav_fridge"

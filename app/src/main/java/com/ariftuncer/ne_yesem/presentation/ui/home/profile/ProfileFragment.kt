@@ -16,6 +16,7 @@ import com.ariftuncer.ne_yesem.presentation.preferences.PreferencesViewModel
 import com.ariftuncer.ne_yesem.presentation.ui.auth.ActivityLoginRegister
 import com.ariftuncer.ne_yesem.presentation.ui.profile.ProfileViewModel
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.ne_yesem.domain.model.UserProfile
 import dagger.hilt.android.AndroidEntryPoint
@@ -68,8 +69,16 @@ class ProfileFragment : Fragment() {
         //sign Out
         binding.btnLogout.setOnClickListener {
             lifecycleScope.launch {
-                vm.signOut()
-
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage("Çıkış yapmak istediğinize emin misiniz?")
+                    .setNegativeButton("Hayır") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                    .setPositiveButton("Evet") { dialog, which ->
+                        vm.signOut()
+                        dialog.dismiss()
+                    }
+                    .show()
             }
         }
         toolbar.navigationIcon = null
