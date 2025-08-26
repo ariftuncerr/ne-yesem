@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ariftuncer.ne_yesem.R
-import com.ne_yesem.domain.model.PantryItem
-import com.ne_yesem.domain.model.UnitType
+import com.ariftuncer.ne_yesem.domain.model.PantryItem
+import com.ariftuncer.ne_yesem.domain.model.UnitType
 
 // presentation/ui/home/fridge/PantryAdapter.kt
 class PantryAdapter(

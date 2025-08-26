@@ -3,8 +3,6 @@ package com.ariftuncer.ne_yesem.presentation.ui.home.fridge
 import PantryAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.FragmentFridgeBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
-import com.ne_yesem.domain.model.IngredientCategory
+import com.ariftuncer.ne_yesem.domain.model.IngredientCategory
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

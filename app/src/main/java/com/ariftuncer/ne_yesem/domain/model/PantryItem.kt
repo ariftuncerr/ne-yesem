@@ -1,4 +1,4 @@
-package com.ne_yesem.domain.model
+package com.ariftuncer.ne_yesem.domain.model
 
 import com.google.firebase.Timestamp
 

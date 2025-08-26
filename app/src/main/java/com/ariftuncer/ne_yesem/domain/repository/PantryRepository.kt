@@ -1,7 +1,7 @@
 package com.ariftuncer.ne_yesem.domain.repository
 
-import com.ne_yesem.domain.model.IngredientCategory
-import com.ne_yesem.domain.model.PantryItem
+import com.ariftuncer.ne_yesem.domain.model.IngredientCategory
+import com.ariftuncer.ne_yesem.domain.model.PantryItem
 import com.google.firebase.Timestamp
 
 interface PantryRepository {

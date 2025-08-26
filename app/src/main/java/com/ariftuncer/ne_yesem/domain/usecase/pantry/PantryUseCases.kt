@@ -2,8 +2,8 @@ package com.ariftuncer.ne_yesem.domain.usecase.pantry
 
 import com.ariftuncer.ne_yesem.domain.repository.PantryRepository
 import com.google.firebase.Timestamp
-import com.ne_yesem.domain.model.IngredientCategory
-import com.ne_yesem.domain.model.PantryItem
+import com.ariftuncer.ne_yesem.domain.model.IngredientCategory
+import com.ariftuncer.ne_yesem.domain.model.PantryItem
 
 
 class AddPantryItemUseCase(private val repo: PantryRepository) {

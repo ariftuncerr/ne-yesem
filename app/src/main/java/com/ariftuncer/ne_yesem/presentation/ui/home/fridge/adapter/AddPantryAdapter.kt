@@ -5,15 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.ariftuncer.ne_yesem.R
-import com.ne_yesem.domain.model.PantryItem
+import com.ariftuncer.ne_yesem.domain.model.PantryItem
 
 class AddPantryAdapter(
     private val items: List<PantryItem>,
     private val selectedItems: MutableSet<String>,
-    private val onItemSelected: (PantryItem, Boolean) -> Unit
+    private val onItemSelected: (PantryItem, Boolean) -> Unit,
+    private val onCardClick: (PantryItem) -> Unit   // 👈 YENİ
 ) : RecyclerView.Adapter<AddPantryAdapter.VH>() {
 
     inner class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -21,20 +23,32 @@ class AddPantryAdapter(
         private val checkLayout = itemView.findViewById<View>(R.id.checkLayout)
         private val card = itemView as androidx.cardview.widget.CardView
 
+        // AddPantryAdapter.kt  → VH.bind(...)
         fun bind(item: PantryItem, isSelected: Boolean) {
             name.text = item.name
             checkLayout.visibility = if (isSelected) View.VISIBLE else View.GONE
-            card.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    card.context,
-                    if (isSelected) R.color.secondary else android.R.color.white
-                )
+
+            // ➊ Kart arka planını secondary yap
+            val secondary = com.google.android.material.color.MaterialColors.getColor(
+                itemView, com.google.android.material.R.attr.colorSecondary
             )
-            card.setOnClickListener {
-                val newState = !isSelected
-                onItemSelected(item, newState)
+            (itemView as CardView).setCardBackgroundColor(secondary)
+
+            // ➋ Metin rengini onSecondary yap (okunabilirlik)
+            val onSecondary = com.google.android.material.color.MaterialColors.getColor(
+                itemView, com.google.android.material.R.attr.colorOnSecondary
+            )
+            name.setTextColor(onSecondary)
+
+            // ➌ Davranışlar aynı
+            itemView.setOnClickListener { onCardClick(item) }
+            itemView.setOnLongClickListener {
+                val ns = !isSelected
+                onItemSelected(item, ns)
+                true
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -45,9 +59,8 @@ class AddPantryAdapter(
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        val item = items[position]
-        val isSelected = selectedItems.contains(item.id)
-        holder.bind(item, isSelected)
+        val it = items[position]
+        holder.bind(it, selectedItems.contains(it.id))
     }
 
     fun selectAll() {

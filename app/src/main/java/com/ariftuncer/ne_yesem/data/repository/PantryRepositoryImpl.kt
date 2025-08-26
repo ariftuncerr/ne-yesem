@@ -4,8 +4,9 @@ import com.ariftuncer.ne_yesem.domain.repository.PantryRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.ne_yesem.domain.model.IngredientCategory
-import com.ne_yesem.domain.model.PantryItem
+import com.ariftuncer.ne_yesem.domain.model.IngredientCategory
+import com.ariftuncer.ne_yesem.domain.model.PantryItem
+import com.ariftuncer.ne_yesem.domain.model.UnitType
 import com.google.firebase.Timestamp
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -80,8 +81,8 @@ class PantryRepositoryImpl @Inject constructor(
                 name = d.getString("name") ?: "",
                 category = category,
                 qty = d.getLong("qty")?.toInt() ?: 0,
-                unit = runCatching { com.ne_yesem.domain.model.UnitType.valueOf(d.getString("unit") ?: "ADET") }
-                    .getOrDefault(com.ne_yesem.domain.model.UnitType.ADET),
+                unit = runCatching { UnitType.valueOf(d.getString("unit") ?: "ADET") }
+                    .getOrDefault(UnitType.ADET),
                 expiryAt = d.getTimestamp("expiryAt"),
                 createdAt = d.getTimestamp("createdAt"),
                 updatedAt = d.getTimestamp("updatedAt")

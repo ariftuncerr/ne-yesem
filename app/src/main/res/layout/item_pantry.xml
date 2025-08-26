@@ -9,13 +9,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_margin="4dp">
+        android:layout_height="45dp"
+        android:layout_margin="8dp">
 
         <TextView
             android:id="@+id/addPantryTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="102dp"
+            android:layout_height="23dp"
             android:layout_marginStart="8dp"
             android:text="Makarna"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -27,6 +27,7 @@
             android:id="@+id/checkLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/addPantryTxt"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +37,8 @@
 
             <ImageView
                 android:id="@+id/checkBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="4dp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -46,17 +47,17 @@
                 app:srcCompat="@drawable/check_16" />
 
             <ImageView
-                android:id="@+id/selectDateImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/addBtn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/date" />
+                app:srcCompat="@drawable/add_circle_24" />
 
             <View
                 android:id="@+id/view"

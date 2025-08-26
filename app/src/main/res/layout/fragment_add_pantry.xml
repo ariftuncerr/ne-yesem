@@ -9,6 +9,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/addPantryLayout"
+        style="@style/Widget.MyApp.OutlinedTextField"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/addPantryEditTxt"
             style="@style/Widget.MyApp.EditText"
             android:layout_width="match_parent"
@@ -49,22 +50,27 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🥬 Sebzeler" />
+            android:text="🥬 Sebzeler"
+            android:visibility="gone"
+            tools:visibility="gone" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🍞 Tahıllar" />
+            android:text="🍞 Tahıllar"
+            android:visibility="gone" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🥩 Et ve Proteinler" />
+            android:text="🥩 Et ve Proteinler"
+            android:visibility="gone" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🧀 Süt Ürünleri" />
+            android:text="🧀 Süt Ürünleri"
+            android:visibility="gone" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView

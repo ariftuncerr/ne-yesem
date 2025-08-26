@@ -11,8 +11,8 @@ import com.ariftuncer.ne_yesem.domain.usecase.pantry.GetItemsByCategoryUseCase
 import com.ariftuncer.ne_yesem.domain.usecase.pantry.UpdateExpiryUseCase
 import com.ariftuncer.ne_yesem.domain.usecase.pantry.UpdatePantryItemUseCase
 import com.google.firebase.Timestamp
-import com.ne_yesem.domain.model.IngredientCategory
-import com.ne_yesem.domain.model.PantryItem
+import com.ariftuncer.ne_yesem.domain.model.IngredientCategory
+import com.ariftuncer.ne_yesem.domain.model.PantryItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
