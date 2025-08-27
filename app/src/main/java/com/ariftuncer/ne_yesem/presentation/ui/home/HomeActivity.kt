@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.ActivityHomeBinding
-import com.ariftuncer.ne_yesem.presentation.ui.home.recipe.RecipeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,10 +32,12 @@ class HomeActivity : AppCompatActivity() {
         val navController = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)?.findNavController()
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController!!)
 
-        binding.createRecipeFabBtn.setOnClickListener {
-            val intent = Intent(this, RecipeActivity::class.java)
-            startActivity(intent)
-        }
+       /* binding.createRecipeFabBtn.setOnClickListener {
+            val navController = supportFragmentManager
+                .findFragmentById(R.id.nav_host_fragment)
+                ?.findNavController()
+            navController?.navigate(R.id.recipeFragment)
+        }*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -47,5 +48,16 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
     }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("SELECTED_TAB", binding.bottomNavigationView.selectedItemId)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val selected = savedInstanceState.getInt("SELECTED_TAB", R.layout.fragment_home)
+        binding.bottomNavigationView.selectedItemId = selected
+    }
+
 
 }

@@ -12,7 +12,7 @@
     <LinearLayout
         android:id="@+id/recipeCard"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:orientation="vertical"
         android:padding="3dp">
 
@@ -102,7 +102,7 @@
                 android:id="@+id/typeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/oval_text"
+                android:background="@drawable/chip_category"
                 android:paddingStart="8dp"
                 android:paddingTop="2dp"
                 android:paddingEnd="8dp"

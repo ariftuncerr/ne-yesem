@@ -15,8 +15,10 @@ import com.ariftuncer.ne_yesem.databinding.FragmentHomeBinding
 import com.ariftuncer.ne_yesem.domain.model.DishType
 import com.ariftuncer.ne_yesem.presentation.ui.home.homepages.adapter.RecommendAdapter
 import com.ariftuncer.ne_yesem.presentation.ui.home.fridge.PantryViewModel
+import com.ariftuncer.ne_yesem.presentation.ui.home.homepages.adapter.LastViewsAdapter
 import com.ariftuncer.ne_yesem.presentation.viewmodel.FavoritesViewModel
 import com.ariftuncer.ne_yesem.presentation.viewmodel.auth.RecipesViewModel
+import com.ariftuncer.ne_yesem.presentation.viewmodel.home.HomeViewModel
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
@@ -29,9 +31,11 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val pantryVm: PantryViewModel by viewModels()
     private val recipesVm: RecipesViewModel by viewModels()
+    private val homeVm: HomeViewModel by viewModels()
     private lateinit var categoryAdapter: CategoryAdapter
 
     private lateinit var recommendAdapter: RecommendAdapter
+    private lateinit var lastViewsAdapter: LastViewsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,6 +79,22 @@ class HomeFragment : Fragment() {
             binding.homeScroll.visibility = if (items.isEmpty()) View.GONE else View.VISIBLE
 
         }
+
+        // Son görüntülenenler için adapter ve gözlemci
+        lastViewsAdapter = LastViewsAdapter { clickedId ->
+            findNavController().navigate(
+                R.id.recipeDetailFragment,
+                Bundle().apply { putInt("recipeId", clickedId) }
+            )
+        }
+        binding.rvLastViews.apply {
+            adapter = lastViewsAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+        homeVm.lastViewedRecipes.observe(viewLifecycleOwner) { recipes ->
+            lastViewsAdapter.submitList(recipes)
+        }
+        homeVm.loadLastViewedRecipes()
     }
 
 

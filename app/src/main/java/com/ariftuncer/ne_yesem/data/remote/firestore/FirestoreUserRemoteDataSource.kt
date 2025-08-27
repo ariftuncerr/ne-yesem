@@ -66,4 +66,20 @@ class FirestoreUserRemoteDataSource @Inject constructor(
             .collection("favorites").get().await()
         return snaps.documents.mapNotNull { it.id.toIntOrNull() }
     }
+
+    override suspend fun addLastView(uid: String, recipeId: Int) {
+        db.collection("users").document(uid)
+            .collection("lastViews")
+            .document(recipeId.toString())
+            .set(mapOf("id" to recipeId, "createdAt" to FieldValue.serverTimestamp()))
+            .await()
+    }
+
+    override suspend fun getLastViewedIds(uid: String): List<Int> {
+        val snaps = db.collection("users").document(uid)
+            .collection("lastViews").orderBy("createdAt", com.google.firebase.firestore.Query.Direction.DESCENDING)
+            .limit(10)
+            .get().await()
+        return snaps.documents.mapNotNull { it.getLong("id")?.toInt() }
+    }
 }

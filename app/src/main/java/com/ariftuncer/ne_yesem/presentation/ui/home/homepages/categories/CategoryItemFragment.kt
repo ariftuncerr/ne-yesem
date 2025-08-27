@@ -47,6 +47,7 @@ class CategoryItemFragment : Fragment() {
             favVm.refresh(uid) // ilk açılışta favori id'lerini çek
         }
 
+        val dishTyp1 = requireArguments().getString("categoryId") ?: "main course" // <-- EKLENDİ
         adapter = DishTypeAdapter(
             favoriteIds = favVm.ids.value ?: emptySet(),
             onCardClick = { recipe -> // Detay
@@ -55,6 +56,8 @@ class CategoryItemFragment : Fragment() {
                     bundleOf("recipeId" to recipe.id)
                 )
             },
+            selectedDishTypeApiName = dishTyp1,                    // <-- EKLENDİ
+
             onHeartToggle = { recipeId, nowFav ->
                 uid ?: return@DishTypeAdapter
                 favVm.toggle(uid, recipeId, nowFavorite = nowFav)

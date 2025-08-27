@@ -11,5 +11,6 @@ interface UserRemoteDataSource {
     suspend fun addFavorite(uid: String, recipeId: Int)
     suspend fun removeFavorite(uid: String, recipeId: Int)
     suspend fun getFavoriteIds(uid: String): List<Int>
-
+    suspend fun addLastView(uid: String, recipeId: Int)
+    suspend fun getLastViewedIds(uid: String): List<Int>
 }

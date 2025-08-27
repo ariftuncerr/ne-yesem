@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_nav_home_to_categoryItemFragment"
             app:destination="@id/categoryItemFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
     </fragment>
 
     <!-- Favoriler -->
@@ -118,4 +121,8 @@
         android:name="com.ariftuncer.ne_yesem.presentation.ui.home.recipe.RecipeDetailFragment"
         android:label="fragment_recipe_detail"
         tools:layout="@layout/fragment_recipe_detail" />
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="RecipeFragment"
+        android:label="RecipeFragment" />
 </navigation>

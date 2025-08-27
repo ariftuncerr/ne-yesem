@@ -13,9 +13,11 @@ import com.bumptech.glide.Glide
 
 class DishTypeAdapter(
     private var favoriteIds: Set<Int> = emptySet(),
+    private val selectedDishTypeApiName: String,              // <-- EKLENDİ
     private val onCardClick: (DishTypeRecipe) -> Unit,
     private val onHeartToggle: (recipeId: Int, nowFavorite: Boolean) -> Unit
 ) : ListAdapter<DishTypeRecipe, DishTypeAdapter.VH>(DIFF) {
+
 
     fun updateFavoriteIds(newFavs: Set<Int>) {
         favoriteIds = newFavs
@@ -31,10 +33,18 @@ class DishTypeAdapter(
         fun bind(item: DishTypeRecipe) = with(b) {
             recipeNameTxt.text = item.title
             durationTxt.text = item.readyInMinutes?.let { "$it dk." } ?: "—"
-            typeTxt.text = item.dishTypes?.joinToString(", ") ?: "—"
             numberOfFavTxt.text = item.likes?.let { "$it kişi favori" } ?: ""
             numberOfFavTxt.visibility = if (item.likes == null) View.GONE else View.VISIBLE
             Glide.with(recipeImg).load(item.image).into(recipeImg)
+
+            val st = styleFor(root.context, selectedDishTypeApiName)
+            typeTxt.text = st.label                   // ← yalnızca seçilen kategori adı
+            typeTxt.setTextColor(st.text)
+            typeTxt.setBackgroundResource(R.drawable.chip_category)
+            androidx.core.view.ViewCompat.setBackgroundTintList(
+                typeTxt, android.content.res.ColorStateList.valueOf(st.bg)
+            )
+
 
             var isFav = favoriteIds.contains(item.id)
             fun renderHeart() {
@@ -60,4 +70,32 @@ class DishTypeAdapter(
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) = holder.bind(getItem(position))
+    private data class DishTypeStyle(val label: String, @androidx.annotation.ColorInt val text: Int, @androidx.annotation.ColorInt val bg: Int)
+
+    private fun styleFor(ctx: android.content.Context, api: String?): DishTypeStyle {
+        return when (api) {
+            "breakfast"   -> DishTypeStyle("Kahvaltı",
+                ctx.getColor(R.color.colorBreakfast), ctx.getColor(R.color.bgBreakfast))
+            "main course" -> DishTypeStyle("Ana Yemek",
+                ctx.getColor(R.color.colorMainCourse), ctx.getColor(R.color.bgMainCourse))
+            "salad"       -> DishTypeStyle("Salata",
+                ctx.getColor(R.color.colorSalad), ctx.getColor(R.color.bgSalad))
+            "dessert"     -> DishTypeStyle("Tatlı",
+                ctx.getColor(R.color.colorDessert), ctx.getColor(R.color.bgDessert))
+            "sauce"       -> DishTypeStyle("Sos",
+                ctx.getColor(R.color.colorSauce), ctx.getColor(R.color.bgSauce))
+            "bread"       -> DishTypeStyle("Hamurişi",
+                ctx.getColor(R.color.colorPastry), ctx.getColor(R.color.bgPastry))
+            "snack"       -> DishTypeStyle("Atıştırmalık",
+                ctx.getColor(R.color.colorSnack), ctx.getColor(R.color.bgSnack))
+            "appetizer"   -> DishTypeStyle("Meze",
+                ctx.getColor(R.color.colorAppetizer), ctx.getColor(R.color.bgAppetizer))
+            "beverage"    -> DishTypeStyle("İçecek",
+                ctx.getColor(R.color.colorDrink), ctx.getColor(R.color.bgDrink))
+            "soup"        -> DishTypeStyle("Çorba",
+                ctx.getColor(R.color.colorAppetizer), ctx.getColor(R.color.bgAppetizer)) // varsa özel renk koy
+            else -> DishTypeStyle("Tarif", ctx.getColor(R.color.text600), ctx.getColor(R.color.primary50))
+        }
+    }
+
 }

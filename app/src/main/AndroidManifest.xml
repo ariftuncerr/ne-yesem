@@ -16,8 +16,6 @@
         android:theme="@style/Theme.Neyesem"
         tools:targetApi="31">
 
-        <activity android:name=".presentation.ui.home.recipe.RecipeActivity"
-            android:exported="false" />
         <activity
             android:name=".presentation.ui.home.HomeActivity"
             android:exported="false" />

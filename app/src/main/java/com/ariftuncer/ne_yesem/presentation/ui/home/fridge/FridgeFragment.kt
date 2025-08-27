@@ -11,11 +11,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.FragmentFridgeBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
 import com.ariftuncer.ne_yesem.domain.model.IngredientCategory
+import com.ariftuncer.ne_yesem.presentation.ui.home.fridge.dialog.QuickRecipeAdapter
+import com.ariftuncer.ne_yesem.presentation.viewmodel.auth.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +26,8 @@ class FridgeFragment : Fragment() {
 
     private var _binding: FragmentFridgeBinding? = null
     private val binding get() = _binding!!
-
+    private val recipesVm: RecipesViewModel by viewModels()
+    private lateinit var quickAdapter: QuickRecipeAdapter
     private lateinit var pantryAdapter: PantryAdapter
     private val viewModel: PantryViewModel by viewModels()
 
@@ -43,7 +47,23 @@ class FridgeFragment : Fragment() {
         setupRecycler()
         setupTabs()
         observePantry()
+
+        setupQuickRecipes()
     }
+    private fun setupQuickRecipes() {
+        quickAdapter = QuickRecipeAdapter()
+        binding.rvQuickRecipes.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvQuickRecipes.adapter = quickAdapter
+
+        // İçerik önemli değil demiştin; örnek birkaç malzemeyle öneri isteyelim
+        recipesVm.loadRecommendations(listOf("egg","tomato","onion"), number = 20)
+
+        recipesVm.recommended.observe(viewLifecycleOwner) { list ->
+            // Rastgele iki ürün seç
+            quickAdapter.submitList(list.shuffled().take(2))
+        }
+    }
+
 
     @SuppressLint("ResourceAsColor")
     private fun setUpComponents() {

@@ -7,8 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.ariftuncer.ne_yesem.R
 import com.ariftuncer.ne_yesem.databinding.FragmentProfileBinding
@@ -24,6 +27,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
+    private val sharedPhotoVm: SharedProfilePhotoViewModel by activityViewModels()
 
     private lateinit var binding: FragmentProfileBinding
     private val vm: ProfileViewModel by viewModels()
@@ -39,6 +43,17 @@ class ProfileFragment : Fragment() {
         setupRows()
         setUpObservers()
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                sharedPhotoVm.photoUri.collect { uri ->
+                    uri?.let { binding.imgAvatar.setImageURI(it) }
+                }
+            }
+        }
     }
     private fun loadUserData() {
         vm.loadProfile()
@@ -107,7 +122,7 @@ class ProfileFragment : Fragment() {
         settings.tvTitle.text = "Ayarlar"
         settings.ivIcon.setImageResource(R.drawable.settings)
         settings.ivChevron.setOnClickListener {
-            findNavController().navigate(R.id.action_nav_profile_to_accountFragment)
+            findNavController().navigate(R.id.action_nav_profile_to_settingsFragment)
 
         }
         val changeEmail = binding.rowChangeEmail

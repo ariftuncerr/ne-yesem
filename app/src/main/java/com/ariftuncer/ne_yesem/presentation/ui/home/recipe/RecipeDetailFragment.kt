@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.ariftuncer.ne_yesem.R
+import com.ariftuncer.ne_yesem.data.remote.firestore.UserRemoteDataSource
 import com.ariftuncer.ne_yesem.databinding.FragmentRecipeDetailBinding
 import com.ariftuncer.ne_yesem.presentation.viewmodel.FavoritesViewModel
 import com.ariftuncer.ne_yesem.presentation.viewmodel.recipe.RecipeDetailViewModel
@@ -19,9 +21,12 @@ import com.bumptech.glide.Glide
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class RecipeDetailFragment : Fragment() {
+    @Inject lateinit var userRemoteDataSource: UserRemoteDataSource
     private val favVm: FavoritesViewModel by viewModels()
     private var currentId: Int = -1
     private lateinit var binding: FragmentRecipeDetailBinding
@@ -67,6 +72,14 @@ class RecipeDetailFragment : Fragment() {
 
         vm.load(id)
         println("Recipe ID: $id")
+
+        // Kullanıcıya ait son görüntülenenler koleksiyonuna ekle
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        if (uid != null) {
+            viewLifecycleOwner.lifecycleScope.launch {
+                userRemoteDataSource.addLastView(uid, id)
+            }
+        }
 
         vm.detail.observe(viewLifecycleOwner) { d ->
 

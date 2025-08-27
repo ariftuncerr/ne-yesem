@@ -10,7 +10,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="52dp"
         android:layout_margin="4dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,8 +27,8 @@
 
             <TextView
                 android:id="@+id/pantryName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="65dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="4dp"
                 android:text="Domates"
                 android:textSize="14sp"
@@ -56,8 +56,8 @@
 
             <TextView
                 android:id="@+id/pantryAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="55dp"
+                android:layout_height="18dp"
                 android:layout_marginStart="4dp"
                 android:text="1 adet"
                 android:textSize="14sp"
