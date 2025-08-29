@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Seçili item -->
+    <item android:color="@color/secondary" android:state_checked="true"/>
+    <!-- Normal (default) -->
+    <item android:color="@color/text300"/>
+</selector>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.home.favorite.FavoriteFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/favoriteSearchLayout"
+            style="@style/Widget.MyApp.OutlinedTextField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toStartOf="@+id/sortBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchFavoriteRecipeEditTxt"
+                style="@style/Widget.MyApp.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tarif Ara" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/filterBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/ic_launcher_background"
+            android:src="@drawable/filter"
+            app:layout_constraintBottom_toBottomOf="@+id/favoriteSearchLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/favoriteSearchLayout" />
+
+        <ImageButton
+            android:id="@+id/sortBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="4dp"
+            android:background="@color/ic_launcher_background"
+            android:src="@drawable/sort"
+            app:layout_constraintBottom_toBottomOf="@+id/favoriteSearchLayout"
+            app:layout_constraintEnd_toStartOf="@+id/filterBtn"
+            app:layout_constraintTop_toTopOf="@+id/favoriteSearchLayout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFavorites"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/favoriteSearchLayout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/noRecipeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.498">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="183dp"
+                android:layout_height="183dp"
+                android:src="@drawable/no_favorite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Henüz favorilerine tarif eklemedin"
+                android:textColor="@color/text600"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="284dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="16dp"
+                android:text="Şimdi keşfetmeye başla ve beğendiğin tarifleri kaydet! 🔖"
+                android:textAlignment="center"
+                android:textColor="@color/text300"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

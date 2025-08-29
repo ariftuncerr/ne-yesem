@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.home.HomeActivity">
+
+    <!-- Toolbar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/createRecipeFabBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialToolbar2">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_graph" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/toolbar_menu"
+            app:subtitle="Bugün ne pişireceksin?"
+            app:subtitleTextColor="@color/text600"
+            app:title="Merhaba"
+            app:titleCentered="false"
+            app:titleTextColor="@color/text950" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:backgroundTint="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <!-- Bottom Navigation -->
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            style="@style/AppBottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+            app:menu="@menu/bottom_nav" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/createRecipeFabBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:src="@drawable/hugeicons_chef_hat"
+            app:backgroundTint="@color/primary"
+            app:layout_constraintEnd_toEndOf="@+id/bottomAppBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+            app:maxImageSize="32dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialComponents.FAB.Circle"
+            app:tint="@color/text50" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- İçerik alanı (Fragmentlerin geleceği yer) -->
+
+
+    <!-- Ortadaki FAB (Tarifler) -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

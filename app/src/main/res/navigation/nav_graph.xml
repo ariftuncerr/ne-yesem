@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <!-- Anasayfa -->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.homepages.HomeFragment"
+        android:label="Anasayfa"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_categoryItemFragment"
+            app:destination="@id/categoryItemFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+
+    <!-- Favoriler -->
+    <fragment
+        android:id="@+id/nav_favorite"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.favorite.FavoriteFragment"
+        android:label="Favoriler"
+        tools:layout="@layout/fragment_favorite" />
+
+    <!-- Dolabım -->
+    <fragment
+        android:id="@+id/nav_fridge"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.fridge.FridgeFragment"
+        android:label="Dolabım"
+        tools:layout="@layout/fragment_fridge" >
+        <action
+            android:id="@+id/action_nav_fridge_to_addPantryFragment"
+            app:destination="@id/addPantryFragment" />
+    </fragment>
+
+    <!-- Profil -->
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.ProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_changeEmailFragment"
+            app:destination="@id/changeEmailFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingListFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.ShoppingListFragment"
+        android:label="fragment_shopping_list"
+        tools:layout="@layout/fragment_shopping_list" />
+    <fragment
+        android:id="@+id/changeEmailFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.ChangeEmailFragment"
+        android:label="fragment_change_email"
+        tools:layout="@layout/fragment_change_email" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.AccountFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.profile.SettingsFragment"
+        android:label="fragment_settings2"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/addPantryFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.fridge.AddPantryFragment"
+        android:label="fragment_add_pantry"
+        tools:layout="@layout/fragment_add_pantry" />
+    <fragment
+        android:id="@+id/recipeTestFragment"
+        android:name="com.ne_yesem.presentation.recipe.RecipeTestFragment"
+        android:label="RecipeTestFragment" />
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.homepages.categories.CategoriesFragment"
+        android:label="CategoriesFragment" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoryItemFragment"
+            app:destination="@id/categoryItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryItemFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.homepages.categories.CategoryItemFragment"
+        android:label="fragment_category_item"
+        tools:layout="@layout/fragment_category_item" >
+        <action
+            android:id="@+id/action_categoryItemFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetailFragment"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.recipe.RecipeDetailFragment"
+        android:label="fragment_recipe_detail"
+        tools:layout="@layout/fragment_recipe_detail" />
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="RecipeFragment"
+        android:label="RecipeFragment" />
+</navigation>

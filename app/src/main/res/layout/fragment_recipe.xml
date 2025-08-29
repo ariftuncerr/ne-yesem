@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".presentation.ui.home.recipe.RecipeActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/createRecipeCard"
+                android:layout_width="0dp"
+                android:layout_height="215dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/createRecipeCardLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/myFridgeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Dolabımdakiler"
+                        android:textColor="@color/text900"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout"
+                        style="@style/Widget.MyApp.OutlinedTextField"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        app:layout_constraintEnd_toStartOf="@+id/filterFridgeBtn"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/Widget.MyApp.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Malzeme Ekle" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/addAllFridgeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="Tümünü Kullan"
+                        app:layout_constraintBottom_toBottomOf="@+id/myFridgeText"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/filterFridgeBtn"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+                        app:srcCompat="@drawable/filter" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvFridgeItems"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/myFridgeText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/prefCookgingCard"
+                android:layout_width="0dp"
+                android:layout_height="132dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createRecipeCard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/prefCookingTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Pişirme Tercihleri"
+                        android:textColor="@color/text900"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/numberOfPersonTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Kişi Sayısı"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/prefCookingTxt" />
+
+                    <TextView
+                        android:id="@+id/prefOptionTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Pişirme Yöntemi"
+                        app:layout_constraintStart_toStartOf="@+id/prefOptionLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/prefCookingTxt" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/numberOfPersonLayout"
+                        style="@style/Widget.MyApp.OutlinedTextField"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/numberOfPersonTxt">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/howManyPersonEditTxt"
+                            style="@style/Widget.MyApp.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Kaç Kişilik" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/prefOptionLayout"
+                        style="@style/Widget.MyApp.OutlinedTextField"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/numberOfPersonLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/prefOptionTxt">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/Widget.MyApp.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Pişirme Yöntemi Seçin" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/createRecipeBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Tarif Oluştur"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/prefCookgingCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/asistanCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createRecipeBtn">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/recipeAsistantText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Tarif Asistanı"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/recipeAsistantText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Asistan"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                        app:layout_constraintStart_toEndOf="@+id/imageView10" />
+
+                    <TextView
+                        android:id="@+id/recipeAsistantText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Asistan"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+                        app:layout_constraintStart_toEndOf="@+id/imageView12" />
+
+                    <TextView
+                        android:id="@+id/asistanExpTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="48dp"
+                        android:text="Tarif ipuçları, önerileri ve destek için tarif asistanıyla sohbet edin"
+                        android:textColor="@color/text400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/recipeAsistantText" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="32dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/asistanExpTxt"
+                        app:srcCompat="@drawable/asistan" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView2"
+                        android:layout_width="258dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@color/text100"
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/recipeAsistantText2"
+                        app:layout_constraintTop_toBottomOf="@+id/recipeAsistantText2">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/textView16"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="4dp"
+                                android:text="Merhaba, ben senin tarif asistanınım en güzel tarifleri oluşturmada sana yardım etmek için buradayım!"
+                                android:textColor="@color/text500"
+                                android:textSize="12sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="2dp"
+                        android:text="08:06"
+                        android:textColor="@color/text400"
+                        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Şimdi"
+                        android:textColor="@color/text400"
+                        app:layout_constraintStart_toStartOf="@+id/cardView3"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView3"
+                        android:layout_width="300dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@color/primary"
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView17">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/textView18"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:text="Kremalı mantarlı makarna yapmak istiyorum makarnayı ne kadar süre pişirmeliyim ?"
+                                android:textColor="#FFFFFF"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="374dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="32dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView19"
+                        app:srcCompat="@drawable/asistan" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView4"
+                        android:layout_width="91dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="2dp"
+                        android:backgroundTint="@color/text100"
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/recipeAsistantText3"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView12">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageView13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/imageView15"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/asistan_loading" />
+
+                            <ImageView
+                                android:id="@+id/imageView14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView15"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/asistan_loading" />
+
+                            <ImageView
+                                android:id="@+id/imageView15"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/imageView14"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/imageView13"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/asistan_loading" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:id="@+id/imageView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/divider"
+                        app:srcCompat="@drawable/ask_asistan" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Tarif hakkında soru sor..."
+                        android:textColor="@color/text400"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/divider" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

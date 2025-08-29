@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.auth.RegisterFragment">
+
+    <!-- ANA İÇERİK -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/registerEmailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="E-posta"
+            android:textColor="@color/text600"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerEmailLayout"
+            style="Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/text200"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerEmailText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerEmailEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ornek@gmail.com" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/registerPasswordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Yeni Şifre"
+            android:textColor="@color/text600"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerEmailLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerPasswordLayout"
+            style="@style/NeYesemTextInputStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/text500"
+            app:endIconTintMode="src_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerPasswordText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerPasswordEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="***********"
+                android:inputType="text|textPassword"
+                android:password="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/registerPasswordText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Şifreyi Doğrula"
+            android:textColor="@color/text600"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerPasswordLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerPasswordApproveLayout"
+            style="@style/NeYesemTextInputStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/text500"
+            app:endIconTintMode="src_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerPasswordText2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerPasswordApproveEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="***********"
+                android:inputType="text|textPassword"
+                android:password="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/registerBtn"
+            style="@style/NeYesemPrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="Kayıt Ol"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerPasswordApproveLayout" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerBtn">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/text400" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:text="ya da"
+                android:textColor="@color/text400"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/text400" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+
+            <ImageButton
+                android:id="@+id/registerFacebookBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/circle_border"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_facebook" />
+
+            <ImageButton
+                android:id="@+id/registerGoogleBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/circle_border"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_google" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3">
+
+            <TextView
+                android:id="@+id/haveAccountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Zaten Hesabın Var mı?"
+                android:textColor="@color/primary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/haveAccountLoginText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/poppins_regular"
+                android:text=" Giriş Yap"
+                android:textColor="@color/secondary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Eski ProgressBar kaldırıldı; overlay içine taşındı -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- LOADING OVERLAY (Dim + ProgressBar) -->
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>
+

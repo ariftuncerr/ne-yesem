@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_2"
+    app:startDestination="@id/recipeFragment2">
+
+    <fragment
+        android:id="@+id/recipeFragment2"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.recipe.RecipeFragment"
+        android:label="RecipeFragment" >
+        <action
+            android:id="@+id/action_recipeFragment2_to_recipeDetailFragment2"
+            app:destination="@id/recipeDetailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetailFragment2"
+        android:name="com.ariftuncer.ne_yesem.presentation.ui.home.recipe.RecipeDetailFragment"
+        android:label="fragment_recipe_detail"
+        tools:layout="@layout/fragment_recipe_detail" />
+</navigation>

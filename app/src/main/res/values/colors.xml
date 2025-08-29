@@ -1,5 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    // Primary color definitions
+    <color name="primary">#29809E</color>
+    <color name="primary50">#EFFAFC</color>
+    <color name="primary100">#D7F1F6</color>
+    <color name="primary200">#B5E4EC</color>
+    <color name="primary300">#81CEDF</color>
+    <color name="primary400">#46B0CA</color>
+    <color name="primary500">#2B94AF</color>
+    <color name="primary600">#29809E</color>
+    <color name="primary700">#256279</color>
+    <color name="primary800">#265164</color>
+    <color name="primary900">#244555</color>
+    <color name="primary950">#132C39</color>
+
+    // Secondary color definitions
+    <color name="secondary">#D75E53</color>
+    <color name="secondary50">#FCF5F4</color>
+    <color name="secondary100">#FAE8E6</color>
+    <color name="secondary200">#F7D4D1</color>
+    <color name="secondary300">#F1B5B0</color>
+    <color name="secondary400">#E68B83</color>
+    <color name="secondary500">#D75E53</color>
+    <color name="secondary600">#C4493E</color>
+    <color name="secondary700">#A53A30</color>
+    <color name="secondary800">#89332B</color>
+    <color name="secondary900">#72302A</color>
+    <color name="secondary950">#3D1612</color>
+
+
+
+    // Text color definitions
+    <color name="text50">#F6F6F6</color>
+    <color name="text100">#E7E7E7</color>
+    <color name="text200">#D1D1D1</color>
+    <color name="text300">#B0B0B0</color>
+    <color name="text400">#888888</color>
+    <color name="text500">#6D6D6D</color>
+    <color name="text600">#5D5D5D</color>
+    <color name="text700">#4F4F4F</color>
+    <color name="text800">#454545</color>
+    <color name="text900">#3D3D3D</color>
+    <color name="text950">#1E1E1E</color>
+
+
+    // Background color definitions
+    <color name="colorMainCourse">#D75E53</color>      <!-- Ana Yemek -->
+    <color name="colorBreakfast">#29809E</color>       <!-- Kahvaltı -->
+    <color name="colorSalad">#226A0D</color>           <!-- Salata -->
+    <color name="colorDessert">#4B24CB</color>         <!-- Tatlı -->
+    <color name="colorSauce">#CB2488</color>           <!-- Sos -->
+    <color name="colorPastry">#97CE4E</color>          <!-- Hamurişi -->
+    <color name="colorSnack">#53D5D7</color>           <!-- Atıştırmalık -->
+    <color name="colorAppetizer">#A81FE3</color>       <!-- Meze -->
+    <color name="colorDrink">#D92427</color>       <!-- İçecek -->
+
+
+    <color name="bgMainCourse">#1AD75E53</color>
+    <color name="bgBreakfast">#1A29809E</color>
+    <color name="bgSalad">#1A226A0D</color>
+    <color name="bgDessert">#1A4B24CB</color>
+    <color name="bgSauce">#1ACB2488</color>
+    <color name="bgPastry">#1A97CE4E</color>
+    <color name="bgSnack">#1A53D5D7</color>
+    <color name="bgAppetizer">#1AA81FE3</color>
+    <color name="bgDrink">#1AD92427</color>
+
+
 </resources>

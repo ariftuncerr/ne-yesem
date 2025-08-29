@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.home.profile.ChangeEmailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+
+        <TextView
+            android:id="@+id/emailTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Mevcut E-Posta"
+            android:textColor="@color/text800"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_nameInputLayout"
+            style="@style/Widget.MyApp.OutlinedTextField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTxt">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditTxt"
+                style="@style/Widget.MyApp.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/email_newTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Yeni E-Posta"
+            android:textColor="@color/text800"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_nameInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_newEmail"
+            style="@style/Widget.MyApp.OutlinedTextField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_newTxt">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_newEmailEditTxt"
+                style="@style/Widget.MyApp.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Yeni E-posta" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/email_approveTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="E-Postayı doğrula"
+            android:textColor="@color/text800"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_newEmail" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_approveNewEmail"
+            style="@style/Widget.MyApp.OutlinedTextField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_approveTxt">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_newEmailApproveEditTxt"
+                style="@style/Widget.MyApp.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Yeni E-posta Doğrula" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/email_saveBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Kaydet"
+            app:iconGravity="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_approveNewEmail" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.home.fridge.FridgeFragment" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <!-- Başlık -->
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Dolabındaki malzemeleri listele, sana özel tarifler önerelim!"
+            android:textColor="@color/text600"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Kategoriler -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/pantryCategories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            app:tabBackground="@drawable/tab_backround"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#FFFFFF"
+            app:tabTextColor="@color/text600">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🥬 Sebzeler" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🍞 Tahıllar" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🥩 Et ve Proteinler" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🧀 Süt Ürünleri" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- Boş alan + Liste -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPantry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:clipToPadding="false"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pantryCategories" />
+
+        <!-- Ekle butonu -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Yeni malzeme ekle +"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvPantry" />
+        <!-- Hızlı Tarifler Başlık -->
+
+        <!-- Hızlı Tarifler Liste (sadece 2 kart) -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvQuickRecipes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:clipToPadding="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipesHeader2" />
+
+        <TextView
+            android:id="@+id/recipesHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Bu malzemelerle şu tarifleri hazırlayabilirsin"
+            android:textColor="@color/text950"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
+
+        <TextView
+            android:id="@+id/recipesHeader2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Bugün ne pişireceksin?"
+            android:textColor="@color/text500"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipesHeader" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

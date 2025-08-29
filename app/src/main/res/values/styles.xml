@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Heading Styles -->
+    <style name="TextHeading1">
+        <item name="android:textSize">@dimen/text_heading_1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="TextHeading2">
+        <item name="android:textSize">@dimen/text_heading_2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="TextHeading3">
+        <item name="android:textSize">@dimen/text_heading_3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="TextHeading4">
+        <item name="android:textSize">@dimen/text_heading_4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="TextHeading5">
+        <item name="android:textSize">@dimen/text_heading_5</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!-- Body Styles -->
+    <style name="TextBody1Regular">
+        <item name="android:textSize">@dimen/text_body_1</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextBody1SemiBold">
+        <item name="android:textSize">@dimen/text_body_1</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextBody2Regular">
+        <item name="android:textSize">@dimen/text_body_2</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextBody2SemiBold">
+        <item name="android:textSize">@dimen/text_body_2</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextBody3Regular">
+        <item name="android:textSize">@dimen/text_body_3</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextBody3SemiBold">
+        <item name="android:textSize">@dimen/text_body_3</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <!-- Caption -->
+    <style name="TextCaptionRegular">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextCaptionSemiBold">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="NeYesemTextInputStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxStrokeColor">@color/text200</item>
+        <item name="hintEnabled">false</item>
+        <item name="hintAnimationEnabled">false</item>
+    </style>
+
+    <style name="NeYesemPrimaryButton" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="font">@font/poppins_bold</item>
+    </style>
+
+    <style name="Widget.App.AllergenChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipMinHeight">36dp</item>
+        <item name="shapeAppearance">@style/Shape.AllergenChip</item>
+
+        <!-- Secondary renk kullan -->
+        <item name="chipBackgroundColor">@color/text50</item>
+        <item name="chipStrokeColor">@color/text400</item>
+        <item name="android:textColor">@color/secondary</item>
+
+        <item name="checkedIconVisible">true</item>
+        <item name="checkedIcon">@drawable/outline_check_24</item>
+        <item name="closeIconVisible">false</item>
+        <item name="android:checkable">true</item>
+    </style>
+
+    <style name="Shape.AllergenChip" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="AppTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Genel görünüm -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <!-- Border ayarları -->
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+
+        <!-- Köşe yuvarlatma -->
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+
+        <!-- Start Icon -->
+        <item name="startIconTint">@color/text300</item>
+    </style>
+
+    <style name="AppTextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">text</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:textColor">@color/text950</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AppBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/text50</item>
+        <item name="itemIconTint">@color/bottom_nav_item</item>
+        <item name="itemTextColor">@color/bottom_nav_item</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemHorizontalTranslationEnabled">false</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialComponents.FAB.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- TextInputLayout (outlined) -->
+    <style name="Widget.MyApp.OutlinedTextField" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <!-- Köşeler -->
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+
+        <!-- Renkler -->
+        <item name="boxStrokeColor">@color/input_storke_color</item>
+        <item name="hintTextColor">@color/input_hint_color</item>
+        <item name="android:textColorHint">@color/input_hint_color</item>
+        <item name="boxBackgroundColor">@color/ic_launcher_background</item>
+        <item name="endIconTint">@color/input_tint_color</item>
+        <item name="startIconTint">@color/input_tint_color</item>
+
+        <!-- Hata rengi -->
+        <item name="errorIconTint">@color/secondary</item>
+        <item name="errorTextColor">@color/secondary</item>
+        <item name="boxStrokeErrorColor">@color/secondary</item>
+
+        <!-- İç boşluk -->
+        <item name="expandedHintEnabled">true</item>
+    </style>
+
+    <!-- EditText -->
+    <style name="Widget.MyApp.EditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+    <item name="android:textColor">@color/input_text_color</item>
+    <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TopRoundedImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+    <style name="Widget.My.TabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicator">@null</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="ThemeOverlay.MyApp.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <!-- üst köşeler yuvarlak -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyApp.BottomSheet</item>
+    </style>
+
+    <style name="ShapeAppearance.MyApp.BottomSheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+
+
+
+</resources>
