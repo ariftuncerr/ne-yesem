@@ -85,7 +85,7 @@ pantry (collection)
                 ├─ unit: "kg"
                 ├─ qty: 2
                 └─ category: "Vegetables"
- ````
+ ```
 
 
 
