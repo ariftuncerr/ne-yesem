@@ -15,12 +15,79 @@ It helps you discover recipes, manage your fridge & pantry, and get personalized
 
 ---
 
-## 📲 Screenshots / Demo
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/e3cbfc9b-d886-4b1a-a558-e2b4f3ffb982" width="360" alt="App Demo"/>
-</p>
-
+## 📲 App Video / Demo
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/e3cbfc9b-d886-4b1a-a558-e2b4f3ffb982"
+         controls
+         muted
+         loop
+         playsinline
+         width="360">
+  </video>
+</div>
 ---
+
+## 🛠️ Tech Stack
+
+- Kotlin Clean + MVVM Architecture
+- XML layouts
+- Retrofit, Coroutines, Glide, Room, Firebase, Firetore 
+- Firebase Authentication & Firestore
+- Spoonacular API integration
+- Material3 / Jetpack components
+
+## 📌 Project Structure
+ ```bash
+- neyesem/
+ ┣ app/
+ ┃ ┣ src/
+ ┃ ┃ ┣ main/
+ ┃ ┃ ┃ ┣ java/com/ariftuncer/ne_yesem/
+ ┃ ┃ ┃ ┃ ┣ data/             # DTOs, Repository Implementations
+ ┃ ┃ ┃ ┃ ┣ domain/           # Models, UseCases, Interfaces
+ ┃ ┃ ┃ ┃ ┣ presentation/
+ ┃ ┃ ┃ ┃ ┃ ┣ ui/             # Screens (Fragments, Activities)
+ ┃ ┃ ┃ ┃ ┃ ┣ adapters/       # RecyclerView Adapters
+ ┃ ┃ ┃ ┃ ┃ ┣ viewmodel/      # ViewModels
+ ┃ ┃ ┃ ┣ res/                # Layouts, Drawables, Strings, Colors
+ ┃ ┃ ┃ ┣ AndroidManifest.xml
+ ┣ build.gradle              # App build config
+ ┣ gradle.properties         # API keys (ignored in git)
+ ┣ settings.gradle           # Project settings
+ ┣ CHANGELOG.md              # Release notes
+ ┗ README.md                 # Documentation
+ ````
+
+## Firebase Firestore Structure
+```bash
+users (collection)
+ └── {userId} (document)
+      ├─ email: "user@example.com"
+      ├─ name: "Arif Tunçer"
+      ├─ preferences
+      │    ├─ diet: "vegetarian"
+      │    └─ allergies: ["nuts", "gluten"]
+      └─ favorites (subcollection)
+           └── {recipeId} (document)
+                ├─ id: 12345
+                ├─ title: "Pasta Carbonara"
+                └─ image: "https://..."
+
+recentlyViewed (collection)
+ └── {userId} (document)
+      └─ viewed: [recipeId1, recipeId2, recipeId3]
+
+pantry (collection)
+ └── {userId} (document)
+      └─ items (subcollection)
+           └── {itemId} (document)
+                ├─ name: "Tomato"
+                ├─ unit: "kg"
+                ├─ qty: 2
+                └─ category: "Vegetables"
+ ````
+
+
 
 ## 🚀 Installation
 
@@ -40,14 +107,6 @@ Go to the **[Releases](releases/1.0.0)** section and download the latest `ne-yes
    ```bash
    ./gradlew assembleDebug
 
-## 🛠️ Tech Stack
-
-- Kotlin Clean + MVVM Architecture
-- XML layouts
-- Retrofit, Coroutines, Glide, Room, Firebase, Firetore 
-- Firebase Authentication & Firestore
-- Spoonacular API integration
-- Material3 / Jetpack components
    
 
    
